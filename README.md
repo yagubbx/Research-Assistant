@@ -6,7 +6,7 @@ Topic 4 of the AI Academy Software Engineering final project. Ask a question, re
 
 **Repository:** [yagubbx/Research-Assistant](https://github.com/yagubbx/Research-Assistant).
 
-## v1.1.0 — launch the presentation UI
+## launch the presentation UI
 
 1. Extract the complete ZIP into a writable folder.
 2. Double-click **run_ui.cmd**. The launcher finds Python, creates a local `.venv`, installs pinned dependencies once and opens Streamlit.
