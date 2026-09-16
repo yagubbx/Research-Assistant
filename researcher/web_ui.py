@@ -32,7 +32,7 @@ def main() -> None:
         st.info("Sample mode uses synthetic educational evidence. It does not search the internet.")
         question = st.selectbox("Choose a research question", questions())
     else:
-        st.info("Live mode uses the provider and API key in your local .env. Run python -m researcher.setup first.")
+        st.info("Live mode uses the configured provider and API key. Locally, run python -m researcher.setup; on Render, configure Environment variables.")
         question = st.text_area("Your research question", placeholder="What is photosynthesis?")
     signature = (mode, question, tuple(names), no_cache)
     if st.session_state.get("selection") != signature:

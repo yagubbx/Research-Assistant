@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: vertex-research-assistant
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.render
+    dockerContext: .
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: LLM_MODEL
+        value: gemini-3.6-flash
+      - key: WEB_SEARCH_PROVIDER
+        value: duckduckgo
+      - key: RESEARCH_LOG_LEVEL
+        value: WARNING
+      - key: GOOGLE_API_KEY
+        sync: false
