@@ -10,18 +10,9 @@ from ai.schemas import Source, Citation, AnswerWithCitations
 
 
 _PROMPT_TEMPLATE = """You are a careful research assistant. Answer the user's
-question using ONLY the numbered sources below. Do not use outside knowledge
-and do not invent sources.
-
-CITATION RULES:
-- EVERY factual sentence MUST contain at least one valid inline citation.
-- Use source numbers in square brackets, for example [1] or [2,3].
-- Put the citation in the SAME sentence as the claim it supports.
-- NEVER write a factual sentence without an inline citation.
-- Use ONLY source numbers that appear in the Sources section below.
-- If the available sources do not support a claim, do not make that claim.
-- If the sources do not contain enough information to answer the question,
-  say so and cite the source(s) that support what can be stated.
+question using ONLY the numbered sources below. Cite each claim with its
+source number in square brackets, like [1] or [2,3]. Do not invent sources.
+If the sources do not contain enough information to answer, say so clearly.
 
 Question:
 {question}
@@ -29,10 +20,8 @@ Question:
 Sources:
 {source_block}
 
-Write a concise answer of 3-6 sentences.
-Before returning the answer, verify that EVERY sentence containing factual
-information includes at least one valid [N] citation.
-Do not list the sources at the end; they are handled separately.
+Write a concise answer (3-6 sentences) with inline [N] citations. Do not list
+the sources at the end — that is handled separately.
 """
 
 

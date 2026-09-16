@@ -19,6 +19,7 @@ from researcher.config import Settings
 from researcher.logging_config import debug_payload, info_payload
 from researcher.offline import OfflineWeb
 from researcher.resilience import RateLimiter, retry
+from researcher.search import topic_query
 from researcher.validation import validate_answer
 from researcher.worker import SourceBatch, SynthesisRequest
 
@@ -35,6 +36,8 @@ class AIService:
 
     async def fetch(self, name: str, query: str, client: httpx.AsyncClient) -> list[Source]:
         """Retry an AI fetch while the orchestrator enforces its total deadline."""
+        if not self.offline:
+            query = topic_query(query)
         info_payload(log, "fetch_input", f"{name}: {query}")
 
         @retry(self.settings)
