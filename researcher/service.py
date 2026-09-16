@@ -110,6 +110,9 @@ class AIService:
             except (ValueError, UnicodeError):
                 raise ProviderError("Provider worker failed") from None
             status = error.get("status")
+            log.warning("provider_worker_failed operation=%s status=%s", request.operation, status)
+            if status == 429:
+                raise ProviderError("Provider quota or rate limit reached; check the provider quota.")
             if isinstance(status, int) and 400 <= status < 500 and status != 429:
                 raise ValueError("Provider rejected the request; check model and credentials.")
             raise ProviderError("Provider unavailable")
@@ -134,6 +137,7 @@ class AIService:
             try:
                 return validate_answer(result, sources, question)
             except ValueError as error:
+                log.warning("citation_validation_failed reason=%s", str(error))
                 # Regenerate within the existing attempt and deadline budgets.
                 # Never attach invented citations to an unsupported sentence.
                 raise ProviderError("Model returned invalid citations; regeneration required") from error
