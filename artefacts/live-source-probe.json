@@ -1,0 +1,57 @@
+{
+  "scope": "Live unauthenticated source retrieval only; not LLM synthesis",
+  "results": [
+    {
+      "name": "wiki",
+      "sources": [
+        {
+          "title": "Photosynthesis",
+          "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+          "snippet": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants, algae and cyanobacteria, convert light energy\u2014typically from sunlight\u2014into the chemical energy necessary to fuel their metabolism. The term photosynthesis usually refers to oxygenic photosynthesis, a process that releases oxygen as a byproduct of water splitting. Photosynthetic organisms store the converted chemical energy within the bonds of intracellular organic compounds, typically carbohydrates like sugars, starches, phytoglycogen and cellulose. When needing to use this stored energy, an organism's cells then metabolize the organic compounds through cellular respiration. Photosynthesis plays a critical role in producing and maintaining the oxygen content of the Earth's atmosphere, and it supplies most of the biological energy necessary for complex life on Earth.",
+          "origin": "wikipedia"
+        },
+        {
+          "title": "Photosynthetic efficiency",
+          "url": "https://en.wikipedia.org/wiki/Photosynthetic_efficiency",
+          "snippet": "The photosynthetic efficiency (i.e. oxygenic photosynthesis efficiency) is the fraction of light energy converted into chemical energy during photosynthesis in green plants and algae. Photosynthesis can be described by the simplified chemical reaction6 H2O + 6 CO2 + energy \u2192 C6H12O6 + 6 O2",
+          "origin": "wikipedia"
+        },
+        {
+          "title": "Photosynthesis system",
+          "url": "https://en.wikipedia.org/wiki/Photosynthesis_system",
+          "snippet": "Photosynthesis systems are electronic scientific instruments designed for non-destructive measurement of photosynthetic rates in the field. Photosynthesis systems are commonly used in agronomic and environmental research, as well as studies of the global carbon cycle.",
+          "origin": "wikipedia"
+        }
+      ],
+      "status": "ok",
+      "elapsed": 3.219469100004062,
+      "note": ""
+    },
+    {
+      "name": "arxiv",
+      "sources": [
+        {
+          "title": "Energy conversion in Purple Bacteria Photosynthesis",
+          "url": "http://arxiv.org/abs/1107.0191v1",
+          "snippet": "The study of how photosynthetic organisms convert light offers insight not only into nature's evolutionary process, but may also give clues as to how best to design and manipulate artificial photosynthetic systems -- and also how far we can drive natural photosynthetic systems beyond normal operating conditions, so that they can harvest energy for us under otherwise extreme conditions. In addition to its interest from a basic scientific perspective, therefore, the goal to develop a deep quantitative understanding of photosynthesis offers the potential payoff of enhancing our current arsenal of alternative energy sources for the future. In the following Chapter, we consider the trade-off between dynamics, structure and function of light harvesting membranes in Rps. Photometricum purple bacteria, as a model to highlight the priorities that arise when photosynthetic organisms adapt to deal with the ever-changing natural environment conditions.",
+          "origin": "arxiv"
+        },
+        {
+          "title": "Can the photosynthesis first step quantum mechanism be explained?",
+          "url": "http://arxiv.org/abs/1005.1337v1",
+          "snippet": "Photosynthesis first step mechanism concerns the sunlight absorption and both negative and positive charges separation. Recent and important photosynthesis literature claims that this mechanism is quantum mechanics controlled, however without presenting qualitative or quantitative scientifically based mechanism. The present accepted and old-fashioned photosynthesis mechanism model suffers from few drawbacks and an important issue is the absence of driving force for negative and positive charges separation. This article presents a new qualitative model for this first step mechanism in natural catalytic systems such as photosynthesis in green leaves. The model uses a concept of semiconductor band gap engineering, such as the staggered energy band gap line-up in semiconductors. To explain the primary mechanism in natural photosynthesis the proposal is the following: incident light is absorbed inside the leaves causing charges separation. The only energetic configuration that allows charges separation under illumination is the staggered one between two materials or molecules. We explain why (e-, h+) interacting charges can be separated by using an energy staggered configuration, under illumination. Following this model, the green light of plants can be seen as related to the spent energy for charges separation. Green colour being mostly an emission and not a reflection as currently presented. The arguments mentioned below show why we cannot explain the photosynthesis first step mechanism, based on the presently accepted model, and therefore the alternative model is presented.",
+          "origin": "arxiv"
+        },
+        {
+          "title": "PhoTorch: A robust and generalized biochemical photosynthesis model fitting package based on PyTorch",
+          "url": "http://arxiv.org/abs/2501.15484v1",
+          "snippet": "Advancements in artificial intelligence (AI) have greatly benefited plant phenotyping and predictive modeling. However, unrealized opportunities exist in leveraging AI advancements in model parameter optimization for parameter fitting in complex biophysical models. This work developed novel software, PhoTorch, for fitting parameters of the Farquhar, von Caemmerer, and Berry (FvCB) biochemical photosynthesis model based the parameter optimization components of the popular AI framework PyTorch. The primary novelty of the software lies in its computational efficiency, robustness of parameter estimation, and flexibility in handling different types of response curves and sub-model functional forms. PhoTorch can fit both steady-state and non-steady-state gas exchange data with high efficiency and accuracy. Its flexibility allows for optional fitting of temperature and light response parameters, and can simultaneously fit light response curves and standard A/Ci curves. These features are not available within presently available A/Ci curve fitting packages. Results illustrated the robustness and efficiency of PhoTorch in fitting A/Ci curves with high variability and some level of artifacts and noise. PhoTorch is more than four times faster than benchmark software, which may be relevant when processing many non-steady-state A/Ci curves with hundreds of data points per curve. PhoTorch provides researchers from various fields with a reliable and efficient tool for analyzing photosynthetic data. The Python package is openly accessible from the repository: https://github.com/GEMINI-Breeding/photorch.",
+          "origin": "arxiv"
+        }
+      ],
+      "status": "ok",
+      "elapsed": 0.6554681999841705,
+      "note": ""
+    }
+  ]
+}

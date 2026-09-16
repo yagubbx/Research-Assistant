@@ -1,0 +1,407 @@
+[
+  {
+    "result": {
+      "question": "What is photosynthesis and what are its main stages?",
+      "answer": "Photosynthesis converts light energy into chemical energy in photosynthetic organisms [1]. Light-dependent reactions generate ATP and NADPH and release oxygen from water [2]. The Calvin cycle uses ATP and NADPH to fix carbon dioxide into carbohydrates [3].",
+      "citations": [
+        {
+          "index": 1,
+          "source": {
+            "title": "SIMULATED: Photosynthesis",
+            "url": "https://example.org/offline/photosynthesis/wikipedia",
+            "snippet": "Photosynthesis converts light energy into chemical energy in photosynthetic organisms.",
+            "origin": "wikipedia"
+          }
+        },
+        {
+          "index": 2,
+          "source": {
+            "title": "SIMULATED: Photosynthesis",
+            "url": "https://example.org/offline/photosynthesis/arxiv",
+            "snippet": "Light-dependent reactions generate ATP and NADPH and release oxygen from water.",
+            "origin": "arxiv"
+          }
+        },
+        {
+          "index": 3,
+          "source": {
+            "title": "SIMULATED: Photosynthesis",
+            "url": "https://example.org/offline/photosynthesis/web",
+            "snippet": "The Calvin cycle uses ATP and NADPH to fix carbon dioxide into carbohydrates.",
+            "origin": "web"
+          }
+        }
+      ]
+    },
+    "retrieval": [
+      {
+        "name": "wiki",
+        "sources": [
+          {
+            "title": "SIMULATED: Photosynthesis",
+            "url": "https://example.org/offline/photosynthesis/wikipedia",
+            "snippet": "Photosynthesis converts light energy into chemical energy in photosynthetic organisms.",
+            "origin": "wikipedia"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.17488669999875128,
+        "note": ""
+      },
+      {
+        "name": "arxiv",
+        "sources": [
+          {
+            "title": "SIMULATED: Photosynthesis",
+            "url": "https://example.org/offline/photosynthesis/arxiv",
+            "snippet": "Light-dependent reactions generate ATP and NADPH and release oxygen from water.",
+            "origin": "arxiv"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.17372510000132024,
+        "note": ""
+      },
+      {
+        "name": "web",
+        "sources": [
+          {
+            "title": "SIMULATED: Photosynthesis",
+            "url": "https://example.org/offline/photosynthesis/web",
+            "snippet": "The Calvin cycle uses ATP and NADPH to fix carbon dioxide into carbohydrates.",
+            "origin": "web"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.1736075000371784,
+        "note": ""
+      }
+    ],
+    "elapsed": 0.6991255999309942,
+    "offline": true
+  },
+  {
+    "result": {
+      "question": "How do transformer-based language models handle long context windows?",
+      "answer": "Self-attention relates tokens throughout the available context window [1]. Dense attention has quadratic attention-score cost as sequence length grows [2]. Sparse attention and positional-encoding adaptations can extend useful context, with accuracy and memory trade-offs [3].",
+      "citations": [
+        {
+          "index": 1,
+          "source": {
+            "title": "SIMULATED: Long-context transformers",
+            "url": "https://example.org/offline/transformer/wikipedia",
+            "snippet": "Self-attention relates tokens throughout the available context window.",
+            "origin": "wikipedia"
+          }
+        },
+        {
+          "index": 2,
+          "source": {
+            "title": "SIMULATED: Long-context transformers",
+            "url": "https://example.org/offline/transformer/arxiv",
+            "snippet": "Dense attention has quadratic attention-score cost as sequence length grows.",
+            "origin": "arxiv"
+          }
+        },
+        {
+          "index": 3,
+          "source": {
+            "title": "SIMULATED: Long-context transformers",
+            "url": "https://example.org/offline/transformer/web",
+            "snippet": "Sparse attention and positional-encoding adaptations can extend useful context, with accuracy and memory trade-offs.",
+            "origin": "web"
+          }
+        }
+      ]
+    },
+    "retrieval": [
+      {
+        "name": "wiki",
+        "sources": [
+          {
+            "title": "SIMULATED: Long-context transformers",
+            "url": "https://example.org/offline/transformer/wikipedia",
+            "snippet": "Self-attention relates tokens throughout the available context window.",
+            "origin": "wikipedia"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.14996790001168847,
+        "note": ""
+      },
+      {
+        "name": "arxiv",
+        "sources": [
+          {
+            "title": "SIMULATED: Long-context transformers",
+            "url": "https://example.org/offline/transformer/arxiv",
+            "snippet": "Dense attention has quadratic attention-score cost as sequence length grows.",
+            "origin": "arxiv"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.14917859993875027,
+        "note": ""
+      },
+      {
+        "name": "web",
+        "sources": [
+          {
+            "title": "SIMULATED: Long-context transformers",
+            "url": "https://example.org/offline/transformer/web",
+            "snippet": "Sparse attention and positional-encoding adaptations can extend useful context, with accuracy and memory trade-offs.",
+            "origin": "web"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.14918750000651926,
+        "note": ""
+      }
+    ],
+    "elapsed": 0.6537404999835417,
+    "offline": true
+  },
+  {
+    "result": {
+      "question": "What were the main causes of the 2008 financial crisis?",
+      "answer": "Risky mortgage lending and falling housing prices increased mortgage defaults [1]. Securitization and high leverage transmitted mortgage losses through financial institutions [2]. Uncertainty about counterparties and funding runs amplified the financial crisis [3].",
+      "citations": [
+        {
+          "index": 1,
+          "source": {
+            "title": "SIMULATED: The 2008 financial crisis",
+            "url": "https://example.org/offline/2008/wikipedia",
+            "snippet": "Risky mortgage lending and falling housing prices increased mortgage defaults.",
+            "origin": "wikipedia"
+          }
+        },
+        {
+          "index": 2,
+          "source": {
+            "title": "SIMULATED: The 2008 financial crisis",
+            "url": "https://example.org/offline/2008/arxiv",
+            "snippet": "Securitization and high leverage transmitted mortgage losses through financial institutions.",
+            "origin": "arxiv"
+          }
+        },
+        {
+          "index": 3,
+          "source": {
+            "title": "SIMULATED: The 2008 financial crisis",
+            "url": "https://example.org/offline/2008/web",
+            "snippet": "Uncertainty about counterparties and funding runs amplified the financial crisis.",
+            "origin": "web"
+          }
+        }
+      ]
+    },
+    "retrieval": [
+      {
+        "name": "wiki",
+        "sources": [
+          {
+            "title": "SIMULATED: The 2008 financial crisis",
+            "url": "https://example.org/offline/2008/wikipedia",
+            "snippet": "Risky mortgage lending and falling housing prices increased mortgage defaults.",
+            "origin": "wikipedia"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.1634014000883326,
+        "note": ""
+      },
+      {
+        "name": "arxiv",
+        "sources": [
+          {
+            "title": "SIMULATED: The 2008 financial crisis",
+            "url": "https://example.org/offline/2008/arxiv",
+            "snippet": "Securitization and high leverage transmitted mortgage losses through financial institutions.",
+            "origin": "arxiv"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.16233040008228272,
+        "note": ""
+      },
+      {
+        "name": "web",
+        "sources": [
+          {
+            "title": "SIMULATED: The 2008 financial crisis",
+            "url": "https://example.org/offline/2008/web",
+            "snippet": "Uncertainty about counterparties and funding runs amplified the financial crisis.",
+            "origin": "web"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.16229450004175305,
+        "note": ""
+      }
+    ],
+    "elapsed": 0.8580158000113443,
+    "offline": true
+  },
+  {
+    "result": {
+      "question": "What is the current state of fusion energy research?",
+      "answer": "Fusion research studies how light nuclei can combine and release energy under suitable conditions [1]. Magnetic and inertial confinement are two major experimental approaches [2]. A scientific energy-gain result is distinct from a power plant delivering net electricity to the grid [3].",
+      "citations": [
+        {
+          "index": 1,
+          "source": {
+            "title": "SIMULATED: Fusion research - educational snapshot",
+            "url": "https://example.org/offline/fusion/wikipedia",
+            "snippet": "Fusion research studies how light nuclei can combine and release energy under suitable conditions.",
+            "origin": "wikipedia"
+          }
+        },
+        {
+          "index": 2,
+          "source": {
+            "title": "SIMULATED: Fusion research - educational snapshot",
+            "url": "https://example.org/offline/fusion/arxiv",
+            "snippet": "Magnetic and inertial confinement are two major experimental approaches.",
+            "origin": "arxiv"
+          }
+        },
+        {
+          "index": 3,
+          "source": {
+            "title": "SIMULATED: Fusion research - educational snapshot",
+            "url": "https://example.org/offline/fusion/web",
+            "snippet": "A scientific energy-gain result is distinct from a power plant delivering net electricity to the grid.",
+            "origin": "web"
+          }
+        }
+      ]
+    },
+    "retrieval": [
+      {
+        "name": "wiki",
+        "sources": [
+          {
+            "title": "SIMULATED: Fusion research - educational snapshot",
+            "url": "https://example.org/offline/fusion/wikipedia",
+            "snippet": "Fusion research studies how light nuclei can combine and release energy under suitable conditions.",
+            "origin": "wikipedia"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.16376370005309582,
+        "note": ""
+      },
+      {
+        "name": "arxiv",
+        "sources": [
+          {
+            "title": "SIMULATED: Fusion research - educational snapshot",
+            "url": "https://example.org/offline/fusion/arxiv",
+            "snippet": "Magnetic and inertial confinement are two major experimental approaches.",
+            "origin": "arxiv"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.162933100014925,
+        "note": ""
+      },
+      {
+        "name": "web",
+        "sources": [
+          {
+            "title": "SIMULATED: Fusion research - educational snapshot",
+            "url": "https://example.org/offline/fusion/web",
+            "snippet": "A scientific energy-gain result is distinct from a power plant delivering net electricity to the grid.",
+            "origin": "web"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.16292500006966293,
+        "note": ""
+      }
+    ],
+    "elapsed": 0.6423177999677137,
+    "offline": true
+  },
+  {
+    "result": {
+      "question": "How does CRISPR-Cas9 gene editing work at a molecular level?",
+      "answer": "A guide RNA directs Cas9 toward a complementary DNA sequence near a compatible PAM [1]. Cas9 can cut the DNA strands at the targeted site [2]. Cellular DNA repair can introduce sequence changes or use a supplied repair template [3].",
+      "citations": [
+        {
+          "index": 1,
+          "source": {
+            "title": "SIMULATED: CRISPR-Cas9",
+            "url": "https://example.org/offline/crispr/wikipedia",
+            "snippet": "A guide RNA directs Cas9 toward a complementary DNA sequence near a compatible PAM.",
+            "origin": "wikipedia"
+          }
+        },
+        {
+          "index": 2,
+          "source": {
+            "title": "SIMULATED: CRISPR-Cas9",
+            "url": "https://example.org/offline/crispr/arxiv",
+            "snippet": "Cas9 can cut the DNA strands at the targeted site.",
+            "origin": "arxiv"
+          }
+        },
+        {
+          "index": 3,
+          "source": {
+            "title": "SIMULATED: CRISPR-Cas9",
+            "url": "https://example.org/offline/crispr/web",
+            "snippet": "Cellular DNA repair can introduce sequence changes or use a supplied repair template.",
+            "origin": "web"
+          }
+        }
+      ]
+    },
+    "retrieval": [
+      {
+        "name": "wiki",
+        "sources": [
+          {
+            "title": "SIMULATED: CRISPR-Cas9",
+            "url": "https://example.org/offline/crispr/wikipedia",
+            "snippet": "A guide RNA directs Cas9 toward a complementary DNA sequence near a compatible PAM.",
+            "origin": "wikipedia"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.1580812999745831,
+        "note": ""
+      },
+      {
+        "name": "arxiv",
+        "sources": [
+          {
+            "title": "SIMULATED: CRISPR-Cas9",
+            "url": "https://example.org/offline/crispr/arxiv",
+            "snippet": "Cas9 can cut the DNA strands at the targeted site.",
+            "origin": "arxiv"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.15714060002937913,
+        "note": ""
+      },
+      {
+        "name": "web",
+        "sources": [
+          {
+            "title": "SIMULATED: CRISPR-Cas9",
+            "url": "https://example.org/offline/crispr/web",
+            "snippet": "Cellular DNA repair can introduce sequence changes or use a supplied repair template.",
+            "origin": "web"
+          }
+        ],
+        "status": "ok",
+        "elapsed": 0.15711880009621382,
+        "note": ""
+      }
+    ],
+    "elapsed": 0.6433502999134362,
+    "offline": true
+  }
+]

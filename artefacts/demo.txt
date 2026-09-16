@@ -1,0 +1,84 @@
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: What is photosynthesis and what are its main stages?
+
+Photosynthesis converts light energy into chemical energy in photosynthetic organisms [1]. Light-dependent reactions generate ATP and NADPH and release oxygen from water [2]. The Calvin cycle uses ATP and NADPH to fix carbon dioxide into carbohydrates [3].
+
+References:
+  [1] (wikipedia) SIMULATED: Photosynthesis
+      https://example.org/offline/photosynthesis/wikipedia
+  [2] (arxiv) SIMULATED: Photosynthesis
+      https://example.org/offline/photosynthesis/arxiv
+  [3] (web) SIMULATED: Photosynthesis
+      https://example.org/offline/photosynthesis/web
+
+Retrieval: wiki=ok (0.175s), arxiv=ok (0.174s), web=ok (0.174s)
+Total: 0.699s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: How do transformer-based language models handle long context windows?
+
+Self-attention relates tokens throughout the available context window [1]. Dense attention has quadratic attention-score cost as sequence length grows [2]. Sparse attention and positional-encoding adaptations can extend useful context, with accuracy and memory trade-offs [3].
+
+References:
+  [1] (wikipedia) SIMULATED: Long-context transformers
+      https://example.org/offline/transformer/wikipedia
+  [2] (arxiv) SIMULATED: Long-context transformers
+      https://example.org/offline/transformer/arxiv
+  [3] (web) SIMULATED: Long-context transformers
+      https://example.org/offline/transformer/web
+
+Retrieval: wiki=ok (0.150s), arxiv=ok (0.149s), web=ok (0.149s)
+Total: 0.654s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: What were the main causes of the 2008 financial crisis?
+
+Risky mortgage lending and falling housing prices increased mortgage defaults [1]. Securitization and high leverage transmitted mortgage losses through financial institutions [2]. Uncertainty about counterparties and funding runs amplified the financial crisis [3].
+
+References:
+  [1] (wikipedia) SIMULATED: The 2008 financial crisis
+      https://example.org/offline/2008/wikipedia
+  [2] (arxiv) SIMULATED: The 2008 financial crisis
+      https://example.org/offline/2008/arxiv
+  [3] (web) SIMULATED: The 2008 financial crisis
+      https://example.org/offline/2008/web
+
+Retrieval: wiki=ok (0.163s), arxiv=ok (0.162s), web=ok (0.162s)
+Total: 0.858s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: What is the current state of fusion energy research?
+
+Fusion research studies how light nuclei can combine and release energy under suitable conditions [1]. Magnetic and inertial confinement are two major experimental approaches [2]. A scientific energy-gain result is distinct from a power plant delivering net electricity to the grid [3].
+
+References:
+  [1] (wikipedia) SIMULATED: Fusion research - educational snapshot
+      https://example.org/offline/fusion/wikipedia
+  [2] (arxiv) SIMULATED: Fusion research - educational snapshot
+      https://example.org/offline/fusion/arxiv
+  [3] (web) SIMULATED: Fusion research - educational snapshot
+      https://example.org/offline/fusion/web
+
+Retrieval: wiki=ok (0.164s), arxiv=ok (0.163s), web=ok (0.163s)
+Total: 0.642s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: How does CRISPR-Cas9 gene editing work at a molecular level?
+
+A guide RNA directs Cas9 toward a complementary DNA sequence near a compatible PAM [1]. Cas9 can cut the DNA strands at the targeted site [2]. Cellular DNA repair can introduce sequence changes or use a supplied repair template [3].
+
+References:
+  [1] (wikipedia) SIMULATED: CRISPR-Cas9
+      https://example.org/offline/crispr/wikipedia
+  [2] (arxiv) SIMULATED: CRISPR-Cas9
+      https://example.org/offline/crispr/arxiv
+  [3] (web) SIMULATED: CRISPR-Cas9
+      https://example.org/offline/crispr/web
+
+Retrieval: wiki=ok (0.158s), arxiv=ok (0.157s), web=ok (0.157s)
+Total: 0.643s

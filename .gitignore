@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.db
+*.sqlite*
+*.log
+*.aux
+*.toc
+*.out
+*.nav
+*.snm
+*.vrb
+*.synctex.gz/tatus --short

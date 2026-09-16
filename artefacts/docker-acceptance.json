@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checks": [
+    "docker build",
+    "five-question offline CLI with --network none",
+    "offline doctor",
+    "container Streamlit health HTTP200"
+  ],
+  "image_id": "sha256:89296e05ec205fb93e263af3b59ae2b96212a6eeb4155e1b9b47e8ff37de1027",
+  "image_bytes": 338510564,
+  "execution": "User launched verify_docker.cmd in the host Windows session; agent inspected the saved log",
+  "scope": "No live LLM call, hosted GitHub CI run or image-size bonus asserted"
+}

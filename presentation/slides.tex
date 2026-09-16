@@ -1,0 +1,207 @@
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[aspectratio=169,11pt]{beamer}
+\newcommand{\teamname}{VerteX}
+\newcommand{\topicchoice}{Async Research Assistant}
+\newcommand{\reportdate}{16 September 2026}
+\newcommand{\repolink}{github.com/yagubbx/Research-Assistant}
+\newcommand{\memberone}{Yaqub Xəlilli}
+\newcommand{\membertwo}{Səbuhi Xamiyev}
+\newcommand{\memberthree}{Aqil Əsgərov}
+
+
+
+
+
+
+
+
+\newcommand{\coursecode}{AI-ENG-110}
+\newcommand{\coursename}{Software Engineering}
+\newcommand{\institution}{AI Academy, National AI Center}
+\newcommand{\semester}{Spring 2026}
+
+\usepackage{fontspec}
+\setmainfont{NotoSerif}[Path=../docs/fonts/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\setsansfont{NotoSans}[Path=../docs/fonts/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\setmonofont{texgyrecursor-regular.otf}
+
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,backgrounds}
+
+\definecolor{accent2}{HTML}{8B0000}
+
+
+\usetheme{default}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{accent}{HTML}{0B3D91}
+\definecolor{soft}{HTML}{F2F4F8}
+\definecolor{ok}{HTML}{166534}
+
+\setbeamercolor{title}{fg=accent}
+\setbeamercolor{frametitle}{fg=accent}
+\setbeamercolor{section in head/foot}{bg=accent,fg=white}
+\setbeamercolor{itemize item}{fg=accent}
+\setbeamercolor{itemize subitem}{fg=accent}
+\setbeamercolor{enumerate item}{fg=accent}
+\setbeamercolor{block title}{bg=accent,fg=white}
+\setbeamercolor{block body}{bg=soft,fg=black}
+
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{footline}{size=\tiny}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox to \paperwidth{\hspace*{2ex}\tiny\textit{\teamname{} -- \topicchoice}\hfill%
+  \tiny\textit{\coursecode{} -- \semester{}}\hfill%
+  \tiny\insertframenumber/\inserttotalframenumber\hspace*{2ex}}%
+  \vskip1pt%
+}
+
+\definecolor{codegreen}{rgb}{0,0.55,0}
+\definecolor{codepurple}{rgb}{0.55,0,0.78}
+\lstdefinestyle{python}{
+  language=Python,
+  backgroundcolor=\color{soft},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{accent},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  framerule=0.4pt,
+  rulecolor=\color{black!30},
+}
+
+\usepackage{xurl}
+\begin{document}
+
+{\setbeamertemplate{footline}{}
+\begin{frame}[plain]\centering
+{\small AI Academy, National AI Center\\AI-ENG-110 -- Software Engineering}\\[0.8cm]
+\rule{0.75\textwidth}{0.6pt}\\[0.4cm]
+{\Huge\bfseries\color{accent}Async Research Assistant}\\[0.4cm]
+\rule{0.75\textwidth}{0.6pt}\\[0.6cm]
+{\Large VerteX}\\[0.4cm]
+Yaqub Xəlilli \quad Səbuhi Xamiyev \quad Aqil Əsgərov\\[0.6cm]
+{\small github.com/yagubbx/Research-Assistant}
+\end{frame}}
+
+\begin{frame}{The research contract}
+\begin{block}{User outcome}A question becomes a concise answer with inspectable numeric references and visible missing-source notes.\end{block}
+\vspace{0.4cm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}\textbf{Input}\begin{itemize}\item Question: 1--2,000 characters\item Selected sources: wiki, arxiv, web\item Optional cache bypass\end{itemize}
+\column{.48\textwidth}\textbf{Output}\begin{itemize}\item Cited answer and source URLs\item Per-source status and timing\item Plain text or structured JSON\end{itemize}
+\end{columns}\vspace{0.5cm}
+\texttt{python -m researcher ask "your question"}
+\end{frame}
+
+\begin{frame}{Architecture}
+\centering\resizebox{.92\textwidth}{!}{\begin{minipage}{15cm}
+\begin{center}
+\begin{tikzpicture}[node distance=7mm,box/.style={draw=accent,rounded corners=2pt,fill=soft,align=center,minimum width=3.5cm,minimum height=8mm,font=\small},arr/.style={-Stealth,thick}]
+\node[box] (cli) {CLI: ask / demo / benchmark};
+\node[box,below=of cli] (core) {Researcher orchestrator};
+\node[box,left=8mm of core] (cache) {Cache ABC\\JSON / memory};
+\node[box,below=of core] (service) {AIService + retry policy};
+\node[box,below=of service] (ai) {Unchanged course ai/};
+\node[box,right=8mm of service] (http) {Shared HTTP client\\retry transport + pacing};
+\draw[arr] (cli)--(core); \draw[arr] (core)--(cache);
+\draw[arr] (core)--(service); \draw[arr] (service)--(ai); \draw[arr] (service)--(http);
+\end{tikzpicture}
+\end{center}
+\end{minipage}}
+\vspace{0.3cm}
+\small Pydantic models cross boundaries. Only the service and its worker call the supplied AI package. No changes to \texttt{ai/}.
+\end{frame}
+
+\begin{frame}{Design decisions}
+\begin{enumerate}\setlength\itemsep{0.65cm}
+\item \textbf{Async I/O for retrieval}\\Independent sources overlap; a semaphore caps active operations.
+\item \textbf{Filesystem cache behind an interface}\\Persistence without a database server; memory backend supports tests.
+\item \textbf{A process for synchronous synthesis}\\A deadline can terminate the SDK call; startup adds latency.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Retrieval benchmark}
+\textbf{Five questions, three repetitions, cache bypassed}\vspace{0.4cm}
+\begin{center}\begin{tabular}{lrr}\toprule & Sequential & Parallel\\\midrule
+Median seconds & 2.412 & 0.802\\Speedup & 1.00$\times$ & 3.01$\times$\\Failed / empty & 0 & 0\\\bottomrule\end{tabular}\end{center}
+\vspace{0.35cm}
+Synthetic HTTP delays: 150 ms per source; semaphore = 3.\\
+\textbf{Scope:} retrieval only; no live-provider latency claim.\\[0.3cm]
+\textbf{Bottleneck:} the slowest source after overlap; synthesis may dominate the full live run.
+\end{frame}
+
+\begin{frame}{Failure handling}
+\textbf{Injected incident: arXiv raises a provider error}\vspace{0.4cm}
+\begin{itemize}\setlength\itemsep{0.35cm}
+\item Wikipedia and web evidence still reaches synthesis.
+\item References include an explicit arXiv-unavailable note.
+\item Transient HTTP failures retry; 401 does not.
+\item All sources unavailable: clear error, no invented answer.
+\end{itemize}\vspace{0.3cm}
+\small Defaults: 3 attempts; 0.5 / 1.0 s backoff; 20 s source deadline; 60 s synthesis deadline.
+\end{frame}
+
+\begin{frame}[fragile]{Scripted demonstration}
+\begin{lstlisting}[style=python,language=bash,numbers=none]
+python -m streamlit run researcher/web_ui.py
+python -m researcher ask "photosynthesis" \
+  --offline --sources wiki,arxiv --json
+docker run --rm --network none vertex-research
+\end{lstlisting}
+\vspace{0.4cm}
+Five original questions produce answers with numbered references.\\[0.25cm]
+Offline evidence is visibly labeled \textbf{SIMULATED}.\\[0.25cm]
+\small Live demo requires configured API keys. Docker build, offline run and UI health checks passed.
+\end{frame}
+
+\begin{frame}{Testing evidence}
+\begin{columns}[T,onlytextwidth]
+\column{.46\textwidth}{\Huge\color{accent}114} passing tests\\[0.45cm]
+{\Huge\color{accent}93.91\%} application coverage\\[0.35cm]
+16 unchanged course smoke tests included.
+\column{.48\textwidth}\textbf{High-value checks}\begin{itemize}\item Source failure and timeout\item Semaphore bound and overlap\item 429 recovery; no 401 retry\item Cache expiry and corruption\item Invalid and missing citations\end{itemize}
+\end{columns}\vspace{0.5cm}
+\small Ruff passes; mypy reports no issues in 17 files. Tests use mocks and deny live sockets.
+\end{frame}
+
+\begin{frame}{Tested extensions in v1.1.0}
+\begin{itemize}\setlength\itemsep{0.3cm}
+\item \textbf{Web failover:} primary failure or timeout, then a configured secondary; chaos tests verify recovery.
+\item \textbf{Token budget:} estimated sliding-window reservations; exhaustion test observes 60 s backoff.
+\item \textbf{Streamlit:} same core pipeline, sample/live modes, references and downloads; AppTest and browser checks.
+\item \textbf{CI:} lint, types, tests, coverage and container UI health workflow.
+\end{itemize}\vspace{0.2cm}
+\small Docker acceptance passed. Live Gemini and hosted CI remain separate checks. Bonus credit is assessed by the instructor.
+\end{frame}
+
+\begin{frame}{Team and AI disclosure}
+\begin{tabularx}{\textwidth}{lX}\toprule
+Member & Defense preparation focus (proposed)\\\midrule
+Yaqub Xəlilli & Orchestration, concurrency, benchmark\\
+Səbuhi Xamiyev & AI boundary, retries, configuration\\
+Aqil Əsgərov & Cache, tests, deployment\\\bottomrule\end{tabularx}\par
+\vspace{0.5cm}
+Codex substantially drafted the software, tests and documentation.\\[0.3cm]
+Actual ownership, PRs and commit shares must be recorded by the team. The contribution statement is unsigned.\\[0.4cm]
+\textbf{Defense goal:} every member can explain the full request path.
+\end{frame}
+
+{\setbeamertemplate{footline}{}
+\begin{frame}[plain]\centering
+{\Huge\bfseries\color{accent}Questions}\\[1cm]
+{\Large VerteX}\\[0.5cm]
+\texttt{github.com/yagubbx/Research-Assistant}\\[0.7cm]
+\small Architecture, timeout behavior, citation validation and benchmark scope
+\end{frame}}
+\end{document}

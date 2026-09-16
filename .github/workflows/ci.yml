@@ -1,0 +1,36 @@
+name: Quality and container
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m ruff check researcher tests/test_se*.py
+      - run: python -m mypy researcher
+      - run: python -m researcher doctor --offline
+      - run: python -m pytest --cov=researcher --cov-report=term-missing --cov-report=xml --cov-fail-under=60
+      - run: python demo_ai.py --offline --limit 5
+      - run: python -m researcher demo --offline --no-cache --json
+      - run: docker build -t vertex-research .
+      - run: docker run --rm --network none vertex-research
+      - run: docker run --rm --network none vertex-research doctor --offline
+      - name: Start web UI in container
+        run: docker run -d --name vertex-ui -p 127.0.0.1:8501:8501 --entrypoint python vertex-research -m streamlit run researcher/web_ui.py --global.developmentMode false --server.address 0.0.0.0 --browser.gatherUsageStats false
+      - name: Check web UI health
+        run: |
+          for attempt in $(seq 1 30); do
+            if curl --fail http://127.0.0.1:8501/_stcore/health; then exit 0; fi
+            sleep 2
+          done
+          docker logs vertex-ui
+          exit 1
+      - name: Stop web UI
+        if: always()
+        run: docker rm -f vertex-ui || true

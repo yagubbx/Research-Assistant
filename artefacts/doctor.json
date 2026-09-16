@@ -1,0 +1,10 @@
+{
+  "ready": true,
+  "mode": "offline",
+  "python": "3.12.14",
+  "llm_provider": "anthropic",
+  "web_provider": "tavily",
+  "docker_cli_found": true,
+  "issues": [],
+  "note": "Local checks only; no provider request or Docker build was performed."
+}

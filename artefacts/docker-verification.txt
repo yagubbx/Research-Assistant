@@ -1,0 +1,252 @@
+Docker acceptance for Research Assistant v1.1.0 
+Client:
+ Version:           29.7.2
+ API version:       1.55
+ Go version:        go1.26.5
+ Git commit:        a7dcaa6
+ Built:             Wed Aug  5 18:31:33 2026
+ OS/Arch:           windows/amd64
+ Context:           desktop-linux
+
+Server: Docker Desktop 4.90.0 (238679)
+ Engine:
+  Version:          29.7.2
+  API version:      1.55 (minimum version 1.40)
+  Go version:       go1.26.5
+  Git commit:       6a43e3d
+  Built:            Wed Aug  5 18:28:36 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.3.3
+  GitCommit:        aad11006b869517fcd3009450b6f82da282e1a9b
+ runc:
+  Version:          1.4.3
+  GitCommit:        v1.4.3-0-gbb14dabe
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 887B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 175B 0.0s done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 1.39kB 0.0s done
+#4 DONE 0.1s
+
+#5 [builder 1/4] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#5 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#5 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.1s done
+#5 DONE 0.1s
+
+#6 [stage-1 6/9] COPY ai ./ai
+#6 CACHED
+
+#7 [builder 3/4] COPY requirements.txt requirements-providers.txt requirements-ui.txt ./
+#7 CACHED
+
+#8 [stage-1 4/9] COPY requirements.txt requirements-providers.txt requirements-ui.txt ./
+#8 CACHED
+
+#9 [stage-1 5/9] RUN pip install --no-cache-dir --no-index --find-links=/wheels -r requirements-ui.txt     && rm -rf /wheels     && useradd --uid 10001 --create-home researcher     && mkdir /app/.cache && chown researcher:researcher /app/.cache
+#9 CACHED
+
+#10 [stage-1 8/9] COPY data ./data
+#10 CACHED
+
+#11 [stage-1 2/9] WORKDIR /app
+#11 CACHED
+
+#12 [builder 2/4] WORKDIR /build
+#12 CACHED
+
+#13 [builder 4/4] RUN pip wheel --no-cache-dir --wheel-dir /wheels -r requirements-ui.txt
+#13 CACHED
+
+#14 [stage-1 3/9] COPY --from=builder /wheels /wheels
+#14 CACHED
+
+#15 [stage-1 7/9] COPY researcher ./researcher
+#15 CACHED
+
+#16 [stage-1 9/9] COPY demo_ai.py .
+#16 CACHED
+
+#17 exporting to image
+#17 exporting layers 0.0s done
+#17 exporting manifest sha256:e8b891ca1481469a6b9c2276f3ea3fb3cbb5bc719b16940c0821326f3e062e11 done
+#17 exporting config sha256:afbb27af93f3ba9c3388a6aa6401353db744be025de71867b45bf463dc385406 done
+#17 exporting attestation manifest sha256:9e0c0923111716d54c16aea59d28574ae10cec2886d88d461c5af29dd22ac078
+#17 exporting attestation manifest sha256:9e0c0923111716d54c16aea59d28574ae10cec2886d88d461c5af29dd22ac078 0.1s done
+#17 exporting manifest list sha256:89296e05ec205fb93e263af3b59ae2b96212a6eeb4155e1b9b47e8ff37de1027 0.0s done
+#17 naming to docker.io/library/vertex-research:1.1.0
+#17 naming to docker.io/library/vertex-research:1.1.0 done
+#17 unpacking to docker.io/library/vertex-research:1.1.0 0.0s done
+#17 DONE 0.3s
+{"level": "INFO", "logger": "researcher.core", "event": "research_start question_chars=52 sources=wiki,arxiv,web offline=True"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=wiki: What is photosynthesis and what are its main stages?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=arxiv: What is photosynthesis and what are its main stages?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=web: What is photosynthesis and what are its main stages?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Photosynthesis"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=web status=ok count=1 elapsed=0.153"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Photosynthesis"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=arxiv status=ok count=1 elapsed=0.160"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Photosynthesis"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=wiki status=ok count=1 elapsed=0.162"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_input preview=What is photosynthesis and what are its main stages?"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_output preview=Photosynthesis converts light energy into chemical energy in photosynthetic organisms [1]. Light-dependent reactions generate ATP and NADPH and release oxygen from water [2]. The Calvin cycle uses ATP"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_complete sources=3 chars=256 elapsed=0.787"}
+{"level": "INFO", "logger": "researcher.core", "event": "research_start question_chars=69 sources=wiki,arxiv,web offline=True"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=wiki: How do transformer-based language models handle long context windows?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=arxiv: How do transformer-based language models handle long context windows?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=web: How do transformer-based language models handle long context windows?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Long-context transformers"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=web status=ok count=1 elapsed=0.152"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Long-context transformers"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=arxiv status=ok count=1 elapsed=0.157"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Long-context transformers"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=wiki status=ok count=1 elapsed=0.159"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_input preview=How do transformer-based language models handle long context windows?"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_output preview=Self-attention relates tokens throughout the available context window [1]. Dense attention has quadratic attention-score cost as sequence length grows [2]. Sparse attention and positional-encoding ada"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_complete sources=3 chars=276 elapsed=0.786"}
+{"level": "INFO", "logger": "researcher.core", "event": "research_start question_chars=55 sources=wiki,arxiv,web offline=True"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=wiki: What were the main causes of the 2008 financial crisis?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=arxiv: What were the main causes of the 2008 financial crisis?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=web: What were the main causes of the 2008 financial crisis?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: The 2008 financial crisis"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=web status=ok count=1 elapsed=0.151"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: The 2008 financial crisis"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=arxiv status=ok count=1 elapsed=0.153"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: The 2008 financial crisis"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=wiki status=ok count=1 elapsed=0.154"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_input preview=What were the main causes of the 2008 financial crisis?"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_output preview=Risky mortgage lending and falling housing prices increased mortgage defaults [1]. Securitization and high leverage transmitted mortgage losses through financial institutions [2]. Uncertainty about co"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_complete sources=3 chars=265 elapsed=0.732"}
+{"level": "INFO", "logger": "researcher.core", "event": "research_start question_chars=52 sources=wiki,arxiv,web offline=True"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=wiki: What is the current state of fusion energy research?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=arxiv: What is the current state of fusion energy research?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=web: What is the current state of fusion energy research?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Fusion research - educational snapshot"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=web status=ok count=1 elapsed=0.152"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Fusion research - educational snapshot"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=arxiv status=ok count=1 elapsed=0.153"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: Fusion research - educational snapshot"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=wiki status=ok count=1 elapsed=0.155"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_input preview=What is the current state of fusion energy research?"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_output preview=Fusion research studies how light nuclei can combine and release energy under suitable conditions [1]. Magnetic and inertial confinement are two major experimental approaches [2]. A scientific energy-"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_complete sources=3 chars=286 elapsed=0.684"}
+{"level": "INFO", "logger": "researcher.core", "event": "research_start question_chars=60 sources=wiki,arxiv,web offline=True"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=wiki: How does CRISPR-Cas9 gene editing work at a molecular level?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=arxiv: How does CRISPR-Cas9 gene editing work at a molecular level?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_input preview=web: How does CRISPR-Cas9 gene editing work at a molecular level?"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: CRISPR-Cas9"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=web status=ok count=1 elapsed=0.151"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: CRISPR-Cas9"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=arxiv status=ok count=1 elapsed=0.153"}
+{"level": "INFO", "logger": "researcher.service", "event": "fetch_output preview=SIMULATED: CRISPR-Cas9"}
+{"level": "INFO", "logger": "researcher.core", "event": "source_complete source=wiki status=ok count=1 elapsed=0.154"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_input preview=How does CRISPR-Cas9 gene editing work at a molecular level?"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_output preview=A guide RNA directs Cas9 toward a complementary DNA sequence near a compatible PAM [1]. Cas9 can cut the DNA strands at the targeted site [2]. Cellular DNA repair can introduce sequence changes or use"}
+{"level": "INFO", "logger": "researcher.service", "event": "synthesis_complete sources=3 chars=232 elapsed=0.655"}
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: What is photosynthesis and what are its main stages?
+
+Photosynthesis converts light energy into chemical energy in photosynthetic organisms [1]. Light-dependent reactions generate ATP and NADPH and release oxygen from water [2]. The Calvin cycle uses ATP and NADPH to fix carbon dioxide into carbohydrates [3].
+
+References:
+  [1] (wikipedia) SIMULATED: Photosynthesis
+      https://example.org/offline/photosynthesis/wikipedia
+  [2] (arxiv) SIMULATED: Photosynthesis
+      https://example.org/offline/photosynthesis/arxiv
+  [3] (web) SIMULATED: Photosynthesis
+      https://example.org/offline/photosynthesis/web
+
+Retrieval: wiki=ok (0.162s), arxiv=ok (0.160s), web=ok (0.153s)
+Total: 0.952s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: How do transformer-based language models handle long context windows?
+
+Self-attention relates tokens throughout the available context window [1]. Dense attention has quadratic attention-score cost as sequence length grows [2]. Sparse attention and positional-encoding adaptations can extend useful context, with accuracy and memory trade-offs [3].
+
+References:
+  [1] (wikipedia) SIMULATED: Long-context transformers
+      https://example.org/offline/transformer/wikipedia
+  [2] (arxiv) SIMULATED: Long-context transformers
+      https://example.org/offline/transformer/arxiv
+  [3] (web) SIMULATED: Long-context transformers
+      https://example.org/offline/transformer/web
+
+Retrieval: wiki=ok (0.159s), arxiv=ok (0.157s), web=ok (0.152s)
+Total: 0.946s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: What were the main causes of the 2008 financial crisis?
+
+Risky mortgage lending and falling housing prices increased mortgage defaults [1]. Securitization and high leverage transmitted mortgage losses through financial institutions [2]. Uncertainty about counterparties and funding runs amplified the financial crisis [3].
+
+References:
+  [1] (wikipedia) SIMULATED: The 2008 financial crisis
+      https://example.org/offline/2008/wikipedia
+  [2] (arxiv) SIMULATED: The 2008 financial crisis
+      https://example.org/offline/2008/arxiv
+  [3] (web) SIMULATED: The 2008 financial crisis
+      https://example.org/offline/2008/web
+
+Retrieval: wiki=ok (0.154s), arxiv=ok (0.153s), web=ok (0.151s)
+Total: 0.887s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: What is the current state of fusion energy research?
+
+Fusion research studies how light nuclei can combine and release energy under suitable conditions [1]. Magnetic and inertial confinement are two major experimental approaches [2]. A scientific energy-gain result is distinct from a power plant delivering net electricity to the grid [3].
+
+References:
+  [1] (wikipedia) SIMULATED: Fusion research - educational snapshot
+      https://example.org/offline/fusion/wikipedia
+  [2] (arxiv) SIMULATED: Fusion research - educational snapshot
+      https://example.org/offline/fusion/arxiv
+  [3] (web) SIMULATED: Fusion research - educational snapshot
+      https://example.org/offline/fusion/web
+
+Retrieval: wiki=ok (0.155s), arxiv=ok (0.153s), web=ok (0.152s)
+Total: 0.840s
+
+OFFLINE DEMO: synthetic evidence; not live research.
+
+Q: How does CRISPR-Cas9 gene editing work at a molecular level?
+
+A guide RNA directs Cas9 toward a complementary DNA sequence near a compatible PAM [1]. Cas9 can cut the DNA strands at the targeted site [2]. Cellular DNA repair can introduce sequence changes or use a supplied repair template [3].
+
+References:
+  [1] (wikipedia) SIMULATED: CRISPR-Cas9
+      https://example.org/offline/crispr/wikipedia
+  [2] (arxiv) SIMULATED: CRISPR-Cas9
+      https://example.org/offline/crispr/arxiv
+  [3] (web) SIMULATED: CRISPR-Cas9
+      https://example.org/offline/crispr/web
+
+Retrieval: wiki=ok (0.154s), arxiv=ok (0.153s), web=ok (0.151s)
+Total: 0.809s
+Configuration: OK (offline)
+Python: 3.12.14
+LLM: anthropic; web: tavily
+Docker CLI: not found (optional for local Python runs)
+Local checks only; no provider request or Docker build was performed.
+05452c74e8d63145c4ba8e1483fa64561b4921a22f1df88968205638458e20bf
+Image ID: sha256:89296e05ec205fb93e263af3b59ae2b96212a6eeb4155e1b9b47e8ff37de1027 Size bytes: 338510564
+vertex-check-10631
+RESULT: PASS - build, five-question offline CLI, doctor and container UI health 

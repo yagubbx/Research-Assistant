@@ -1,0 +1,588 @@
+{
+  "scope": "Live Wikipedia/arXiv retrieval, five topical queries, one repetition; excludes web and synthesis",
+  "python": "3.12.14",
+  "cache": "all reads/writes bypassed",
+  "pacing": "configured; unchanged in both modes",
+  "seconds": {
+    "sequential": 19.656173800001852,
+    "parallel": 19.28815829998348
+  },
+  "failed_or_empty": 0,
+  "speedup": 1.0190798672581762,
+  "outcomes": {
+    "sequential": [
+      {
+        "query": "photosynthesis",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Photosynthesis",
+                "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+                "snippet": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants, algae and cyanobacteria, convert light energy\u2014typically from sunlight\u2014into the chemical energy necessary to fuel their metabolism. The term photosynthesis usually refers to oxygenic photosynthesis, a process that releases oxygen as a byproduct of water splitting. Photosynthetic organisms store the converted chemical energy within the bonds of intracellular organic compounds, typically carbohydrates like sugars, starches, phytoglycogen and cellulose. When needing to use this stored energy, an organism's cells then metabolize the organic compounds through cellular respiration. Photosynthesis plays a critical role in producing and maintaining the oxygen content of the Earth's atmosphere, and it supplies most of the biological energy necessary for complex life on Earth.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Photosynthetic efficiency",
+                "url": "https://en.wikipedia.org/wiki/Photosynthetic_efficiency",
+                "snippet": "The photosynthetic efficiency (i.e. oxygenic photosynthesis efficiency) is the fraction of light energy converted into chemical energy during photosynthesis in green plants and algae. Photosynthesis can be described by the simplified chemical reaction6 H2O + 6 CO2 + energy \u2192 C6H12O6 + 6 O2",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Photosynthesis system",
+                "url": "https://en.wikipedia.org/wiki/Photosynthesis_system",
+                "snippet": "Photosynthesis systems are electronic scientific instruments designed for non-destructive measurement of photosynthetic rates in the field. Photosynthesis systems are commonly used in agronomic and environmental research, as well as studies of the global carbon cycle.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.1214308999478817,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Energy conversion in Purple Bacteria Photosynthesis",
+                "url": "http://arxiv.org/abs/1107.0191v1",
+                "snippet": "The study of how photosynthetic organisms convert light offers insight not only into nature's evolutionary process, but may also give clues as to how best to design and manipulate artificial photosynthetic systems -- and also how far we can drive natural photosynthetic systems beyond normal operating conditions, so that they can harvest energy for us under otherwise extreme conditions. In addition to its interest from a basic scientific perspective, therefore, the goal to develop a deep quantitative understanding of photosynthesis offers the potential payoff of enhancing our current arsenal of alternative energy sources for the future. In the following Chapter, we consider the trade-off between dynamics, structure and function of light harvesting membranes in Rps. Photometricum purple bacteria, as a model to highlight the priorities that arise when photosynthetic organisms adapt to deal with the ever-changing natural environment conditions.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Can the photosynthesis first step quantum mechanism be explained?",
+                "url": "http://arxiv.org/abs/1005.1337v1",
+                "snippet": "Photosynthesis first step mechanism concerns the sunlight absorption and both negative and positive charges separation. Recent and important photosynthesis literature claims that this mechanism is quantum mechanics controlled, however without presenting qualitative or quantitative scientifically based mechanism. The present accepted and old-fashioned photosynthesis mechanism model suffers from few drawbacks and an important issue is the absence of driving force for negative and positive charges separation. This article presents a new qualitative model for this first step mechanism in natural catalytic systems such as photosynthesis in green leaves. The model uses a concept of semiconductor band gap engineering, such as the staggered energy band gap line-up in semiconductors. To explain the primary mechanism in natural photosynthesis the proposal is the following: incident light is absorbed inside the leaves causing charges separation. The only energetic configuration that allows charges separation under illumination is the staggered one between two materials or molecules. We explain why (e-, h+) interacting charges can be separated by using an energy staggered configuration, under illumination. Following this model, the green light of plants can be seen as related to the spent energy for charges separation. Green colour being mostly an emission and not a reflection as currently presented. The arguments mentioned below show why we cannot explain the photosynthesis first step mechanism, based on the presently accepted model, and therefore the alternative model is presented.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "PhoTorch: A robust and generalized biochemical photosynthesis model fitting package based on PyTorch",
+                "url": "http://arxiv.org/abs/2501.15484v1",
+                "snippet": "Advancements in artificial intelligence (AI) have greatly benefited plant phenotyping and predictive modeling. However, unrealized opportunities exist in leveraging AI advancements in model parameter optimization for parameter fitting in complex biophysical models. This work developed novel software, PhoTorch, for fitting parameters of the Farquhar, von Caemmerer, and Berry (FvCB) biochemical photosynthesis model based the parameter optimization components of the popular AI framework PyTorch. The primary novelty of the software lies in its computational efficiency, robustness of parameter estimation, and flexibility in handling different types of response curves and sub-model functional forms. PhoTorch can fit both steady-state and non-steady-state gas exchange data with high efficiency and accuracy. Its flexibility allows for optional fitting of temperature and light response parameters, and can simultaneously fit light response curves and standard A/Ci curves. These features are not available within presently available A/Ci curve fitting packages. Results illustrated the robustness and efficiency of PhoTorch in fitting A/Ci curves with high variability and some level of artifacts and noise. PhoTorch is more than four times faster than benchmark software, which may be relevant when processing many non-steady-state A/Ci curves with hundreds of data points per curve. PhoTorch provides researchers from various fields with a reliable and efficient tool for analyzing photosynthetic data. The Python package is openly accessible from the repository: https://github.com/GEMINI-Breeding/photorch.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.3624307999853045,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "transformer",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Transformer",
+                "url": "https://en.wikipedia.org/wiki/Transformer",
+                "snippet": "In electrical engineering, a transformer is a passive component that transfers electrical energy from one electrical circuit to another circuit, or multiple circuits. A varying current in any coil of the transformer produces a varying magnetic flux in the transformer's core, which induces a varying electromotive force (EMF) across any other coils wound around the same core. Electrical energy can be transferred between separate coils without a metallic (conductive) connection between the two circuits. Faraday's law of induction, discovered in 1831, describes the induced voltage effect in any coil due to a changing magnetic flux encircled by the coil.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Transformers (film series)",
+                "url": "https://en.wikipedia.org/wiki/Transformers_(film_series)",
+                "snippet": "Transformers is a series of science fiction action films based on the Transformers franchise. Michael Bay directed the first five live action films: Transformers (2007), Revenge of the Fallen (2009), Dark of the Moon (2011), Age of Extinction (2014), and The Last Knight (2017), and has served as a producer for subsequent films. A sixth film, Bumblebee, directed by Travis Knight, was released in 2018; a seventh film, Rise of the Beasts, directed by Steven Caple Jr., was released in 2023.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Transformers",
+                "url": "https://en.wikipedia.org/wiki/Transformers",
+                "snippet": "Transformers is a mecha media franchise produced by American toy company Hasbro and Japanese toy company Takara Tomy. It primarily follows the heroic Autobots and the villainous Decepticons, two alien robot factions at war that can transform into other forms, such as vehicles and animals. The franchise encompasses toys, animation, comic books, video games and films. As of 2011, it generated more than \u00a52 trillion in revenue, making it one of the highest-grossing media franchises of all time.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.6637059999629855,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+                "url": "http://arxiv.org/abs/2201.00978v1",
+                "snippet": "Transformer networks have achieved great progress for computer vision tasks. Transformer-in-Transformer (TNT) architecture utilizes inner transformer and outer transformer to extract both local and global representations. In this work, we present new TNT baselines by introducing two advanced designs: 1) pyramid architecture, and 2) convolutional stem. The new \"PyramidTNT\" significantly improves the original TNT by establishing hierarchical representations. PyramidTNT achieves better performances than the previous state-of-the-art vision transformers such as Swin Transformer. We hope this new baseline will be helpful to the further research and application of vision transformer. Code will be available at https://github.com/huawei-noah/CV-Backbones/tree/master/tnt_pytorch.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Learning to Cluster Faces via Transformer",
+                "url": "http://arxiv.org/abs/2104.11502v1",
+                "snippet": "Face clustering is a useful tool for applications like automatic face annotation and retrieval. The main challenge is that it is difficult to cluster images from the same identity with different face poses, occlusions, and image quality. Traditional clustering methods usually ignore the relationship between individual images and their neighbors which may contain useful context information. In this paper, we repurpose the well-known Transformer and introduce a Face Transformer for supervised face clustering. In Face Transformer, we decompose the face clustering into two steps: relation encoding and linkage predicting. Specifically, given a face image, a \\textbf{relation encoder} module aggregates local context information from its neighbors and a \\textbf{linkage predictor} module judges whether a pair of images belong to the same cluster or not. In the local linkage graph view, Face Transformer can generate more robust node and edge representations compared to existing methods. Experiments on both MS-Celeb-1M and DeepFashion show that our method achieves state-of-the-art performance, e.g., 91.12\\% in pairwise F-score on MS-Celeb-1M.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "MLP Can Be A Good Transformer Learner",
+                "url": "http://arxiv.org/abs/2404.05657v1",
+                "snippet": "Self-attention mechanism is the key of the Transformer but often criticized for its computation demands. Previous token pruning works motivate their methods from the view of computation redundancy but still need to load the full network and require same memory costs. This paper introduces a novel strategy that simplifies vision transformers and reduces computational load through the selective removal of non-essential attention layers, guided by entropy considerations. We identify that regarding the attention layer in bottom blocks, their subsequent MLP layers, i.e. two feed-forward layers, can elicit the same entropy quantity. Meanwhile, the accompanied MLPs are under-exploited since they exhibit smaller feature entropy compared to those MLPs in the top blocks. Therefore, we propose to integrate the uninformative attention layers into their subsequent counterparts by degenerating them into identical mapping, yielding only MLP in certain transformer blocks. Experimental results on ImageNet-1k show that the proposed method can remove 40% attention layer of DeiT-B, improving throughput and memory bound without performance compromise. Code is available at https://github.com/sihaoevery/lambda_vit.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.366028800024651,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "financial crisis",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Financial crisis",
+                "url": "https://en.wikipedia.org/wiki/Financial_crisis",
+                "snippet": "A financial crisis is any of a broad variety of situations in which some financial assets suddenly lose a large part of their nominal value. A broader reduction of economic activity affecting the whole economy is known as an economic crisis. In the 19th and early 20th centuries, many financial crises were associated with banking panics, and many recessions coincided with these panics. Other situations that are often called financial crises include stock market crashes and the bursting of other financial bubbles, currency crises, and sovereign defaults. Financial crises directly result in a loss of paper wealth but do not necessarily result in significant changes in the real economy.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Financial Crisis Inquiry Commission",
+                "url": "https://en.wikipedia.org/wiki/Financial_Crisis_Inquiry_Commission",
+                "snippet": "The Financial Crisis Inquiry Commission (FCIC) was established in 2010 in the United States to investigate the causes of the 2008 financial crisis. The commission, led by Phil Angelides, held public hearings, gathered testimony from hundreds, and released its report in January 2011.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Financial crisis of 33",
+                "url": "https://en.wikipedia.org/wiki/Financial_crisis_of_33",
+                "snippet": "A financial and economic crisis occurred in 33 AD in the Roman Empire, during the reign of Emperor Tiberius. After a shift in government policy and a series of confiscations reduced the Roman money supply, the crisis was triggered by the invocation of an old law which resulted in the early recalls of loans given, a credit crunch, and a crash of real estate prices. The crisis was eventually resolved with a liquidity injection in the form of interest-free loans.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.706286499975249,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Financial Bubbles, Real Estate bubbles, Derivative Bubbles, and the Financial and Economic Crisis",
+                "url": "http://arxiv.org/abs/0905.0220v1",
+                "snippet": "The financial crisis of 2008, which started with an initially well-defined epicenter focused on mortgage backed securities (MBS), has been cascading into a global economic recession, whose increasing severity and uncertain duration has led and is continuing to lead to massive losses and damage for billions of people. Heavy central bank interventions and government spending programs have been launched worldwide and especially in the USA and Europe, with the hope to unfreeze credit and boltster consumption. Here, we present evidence and articulate a general framework that allows one to diagnose the fundamental cause of the unfolding financial and economic crisis: the accumulation of several bubbles and their interplay and mutual reinforcement has led to an illusion of a \"perpetual money machine\" allowing financial institutions to extract wealth from an unsustainable artificial process. Taking stock of this diagnostic, we conclude that many of the interventions to address the so-called liquidity crisis and to encourage more consumption are ill-advised and even dangerous, given that precautionary reserves were not accumulated in the \"good times\" but that huge liabilities were. The most \"interesting\" present times constitute unique opportunities but also great challenges, for which we offer a few recommendations.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Risk-dependent centrality in economic and financial networks",
+                "url": "http://arxiv.org/abs/1907.07908v4",
+                "snippet": "Node centrality is one of the most important and widely used concepts in the study of complex networks. Here, we extend the paradigm of node centrality in financial and economic networks to consider the changes of node \"importance\" produced not only by the variation of the topology of the system but also as a consequence of the external levels of risk to which the network as a whole is submitted. Starting from the \"Susceptible-Infected\" (SI) model of epidemics and its relation to the communicability functions of networks we develop a series of risk-dependent centralities for nodes in (financial and economic) networks. We analyze here some of the most important mathematical properties of these risk-dependent centrality measures. In particular, we study the newly observed phenomenon of ranking interlacement, by means of which two entities may interlace their ranking positions in terms of risk in the network as a consequence of the change in the external conditions only, i.e., without any change in the topology. We test the risk-dependent centralities by studying two real-world systems: the network generated by collecting assets of the S\\&P 100 and the corporate board network of the US top companies, according to Forbes in 1999. We found that a high position in the ranking of the analyzed financial companies according to their risk-dependent centrality corresponds to companies more sensitive to the external market variations during the periods of crisis.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "The Federal Reserve's Response to the Global Financial Crisis and Its Long-Term Impact: An Interrupted Time-Series Natural Experimental Analysis",
+                "url": "http://arxiv.org/abs/2305.12318v1",
+                "snippet": "This paper examines the monetary policies the Federal Reserve implemented in response to the Global Financial Crisis. More specifically, it analyzes the Federal Reserve's quantitative easing (QE) programs, liquidity facilities, and forward guidance operations conducted from 2007 to 2018. The essay's detailed examination of these policies culminates in an interrupted time-series (ITS) analysis of the long-term causal effects of the QE programs on U.S. inflation and real GDP. The results of this formal design-based natural experimental approach show that the QE operations positively affected U.S. real GDP but did not significantly impact U.S. inflation. Specifically, it is found that, for the 2011Q2-2018Q4 post-QE period, real GDP per capita in the U.S. increased by an average of 231 dollars per quarter relative to how it would have changed had the QE programs not been conducted. Moreover, the results show that, in 2018Q4, ten years after the beginning of the QE programs, real GDP per capita in the U.S. was 14% higher relative to what it would have been during that quarter had there not been the QE programs. These findings contradict Williamson's (2017) informal natural experimental evidence and confirm the conclusions of VARs and new Keynesian DSGE models that the Federal Reserve's QE policies positively affected U.S. real GDP. The results suggest that the current U.S. and worldwide high inflation rates are likely not because of the QE programs implemented in response to the financial crisis that accompanied the COVID-19 pandemic. They are likely due to the unprecedentedly large fiscal stimulus packages used, the peculiar nature of the financial downturn itself, the negative supply shocks from the war in Ukraine, or a combination of these factors. This paper is the first study to measure the macroeconomic effects of QE using a design-based natural experimental approach.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.3792088000336662,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "fusion energy",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Fusion power",
+                "url": "https://en.wikipedia.org/wiki/Fusion_power",
+                "snippet": "Fusion power is a potential method of electric power generation from heat released by nuclear fusion reactions. In fusion, two light atomic nuclei combine to form a heavier nucleus and release energy. Devices that use this process are known as fusion reactors.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Fusion energy gain factor",
+                "url": "https://en.wikipedia.org/wiki/Fusion_energy_gain_factor",
+                "snippet": "A fusion energy gain factor, usually expressed with the symbol Q, is the ratio of fusion power produced in a nuclear fusion reactor to the power required to maintain the plasma in a steady state. The condition of Q = 1, when the power being released by the fusion reactions is equal to the required heating power, is referred to as breakeven, or in some sources, scientific breakeven.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Fusion Energy Foundation",
+                "url": "https://en.wikipedia.org/wiki/Fusion_Energy_Foundation",
+                "snippet": "Fusion Energy Foundation (FEF) was an American non-profit think tank co-founded by Lyndon LaRouche in 1974 in New York. It promoted the construction of nuclear power plants, research into fusion power and beam weapons and other causes. The FEF was called fusion's greatest private supporter. It was praised by scientists like John Clarke, who said that the fusion community owed it a \"debt of gratitude\". By 1980, its main publication, Fusion, claimed 80,000 subscribers.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.685915599926375,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Retrospective of the ARPA-E ALPHA fusion program",
+                "url": "http://arxiv.org/abs/1907.09921v2",
+                "snippet": "This paper provides a retrospective of the ALPHA (Accelerating Low-cost Plasma Heating and Assembly) fusion program of the Advanced Research Projects Agency-Energy (ARPA-E) of the U.S. Department of Energy. ALPHA's objective was to catalyze research and development efforts to enable substantially lower-cost pathways to economical fusion power. To do this in a targeted, focused program, ALPHA focused on advancing the science and technology of pulsed, intermediate-density fusion approaches, including magneto-inertial fusion and Z-pinch variants, that have the potential to scale to commercially viable fusion power plants. The paper includes a discussion of the origins and framing of the ALPHA program, a summary of project status and outcomes, a description of associated technology-transition activities, and thoughts on a potential follow-on ARPA-E fusion program.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Challenges and opportunities for AI to help deliver fusion energy",
+                "url": "http://arxiv.org/abs/2603.25777v2",
+                "snippet": "There is great potential for the application of AI tools in fusion research, and substantial worldwide benefit if fusion power is realised. However, using AI comes with its own challenges, many of which can be mitigated if responsible and robust methodologies are built into existing approaches. To do that requires close, long-term collaborations between fusion domain experts and AI developers and awareness of the fact that not all problems in fusion research are best tackled with AI tools. In April 2025, experts from academia, industry, UKAEA and STFC discussed how AI can be used to advance R&D in fusion energy at the first edition of The Economist FusionFest event. This Perspective is an expanded and updated summary of the round table discussion, providing more context and examples.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "The Dark Energy Survey",
+                "url": "http://arxiv.org/abs/astro-ph/0510346v1",
+                "snippet": "We describe the Dark Energy Survey (DES), a proposed optical-near infrared survey of 5000 sq. deg of the South Galactic Cap to ~24th magnitude in SDSS griz, that would use a new 3 sq. deg CCD camera to be mounted on the Blanco 4-m telescope at Cerro Telolo Inter-American Observatory (CTIO). The survey data will allow us to measure the dark energy and dark matter densities and the dark energy equation of state through four independent methods: galaxy clusters, weak gravitational lensing tomography, galaxy angular clustering, and supernova distances. These methods are doubly complementary: they constrain different combinations of cosmological model parameters and are subject to different systematic errors. By deriving the four sets of measurements from the same data set with a common analysis framework, we will obtain important cross checks of the systematic errors and thereby make a substantial and robust advance in the precision of dark energy measurements.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.3523742000106722,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "CRISPR",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "CRISPR",
+                "url": "https://en.wikipedia.org/wiki/CRISPR",
+                "snippet": "CRISPR is a family of DNA sequences found in the genomes of prokaryotic organisms such as bacteria and archaea. Each sequence within an individual prokaryotic CRISPR is derived from a DNA fragment of a bacteriophage that had previously infected the prokaryote or one of its ancestors. These sequences are used to detect and destroy DNA from similar bacteriophages during subsequent infections. Hence these sequences play a key role in the antiviral defense system of prokaryotes and provide a form of heritable, acquired immunity. CRISPR is found in approximately 50% of sequenced bacterial genomes and nearly 90% of sequenced archaea.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "CRISPR gene editing",
+                "url": "https://en.wikipedia.org/wiki/CRISPR_gene_editing",
+                "snippet": "CRISPR gene editing is a genetic engineering technique in molecular biology by which the genomes of living organisms may be modified. It is based on a simplified version of the bacterial CRISPR-Cas9 antiviral defense system. By delivering the Cas9 nuclease complexed with a synthetic guide RNA (gRNA) into a cell, the cell's genome can be cut at a desired location, allowing existing genes to be removed or new ones added in vivo.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "CRISPR interference",
+                "url": "https://en.wikipedia.org/wiki/CRISPR_interference",
+                "snippet": "CRISPR interference (CRISPRi) is a genetic perturbation technique that allows for sequence-specific repression of gene expression in prokaryotic and eukaryotic cells. It was first developed by Stanley Qi and colleagues in the laboratories of Wendell Lim, Adam Arkin, Jonathan Weissman, and Jennifer Doudna. Sequence-specific activation of gene expression refers to CRISPR activation (CRISPRa).",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.4670241000130773,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Investigating the genomic background of CRISPR-Cas genomes for CRISPR-based antimicrobials",
+                "url": "http://arxiv.org/abs/2202.07171v1",
+                "snippet": "CRISPR-Cas systems are an adaptive immunity that protects prokaryotes against foreign genetic elements. Genetic templates acquired during past infection events enable DNA-interacting enzymes to recognize foreign DNA for destruction. Due to the programmability and specificity of these genetic templates, CRISPR-Cas systems are potential alternative antibiotics that can be engineered to self-target antimicrobial resistance genes on the chromosome or plasmid. However, several fundamental questions remain to repurpose these tools against drug-resistant bacteria. For endogenous CRISPR-Cas self-targeting, antimicrobial resistance genes and functional CRISPR-Cas systems have to co-occur in the target cell. Furthermore, these tools have to outplay DNA repair pathways that respond to the nuclease activities of Cas proteins, even for exogenous CRISPR-Cas delivery. Here, we conduct a comprehensive survey of CRISPR-Cas genomes. First, we address the co-occurrence of CRISPR-Cas systems and antimicrobial resistance genes in the CRISPR-Cas genomes. We show that the average number of these genes varies greatly by the CRISPR-Cas type, and some CRISPR-Cas types (IE and IIIA) have over 20 genes per genome. Next, we investigate the DNA repair pathways of these CRISPR-Cas genomes, revealing that the diversity and frequency of these pathways differ by the CRISPR-Cas type. The interplay between CRISPR-Cas systems and DNA repair pathways is essential for the acquisition of new spacers in CRISPR arrays. We conduct simulation studies to demonstrate that the efficiency of these DNA repair pathways may be inferred from the time-series patterns in the RNA structure of CRISPR repeats. This bioinformatic survey of CRISPR-Cas genomes elucidates the necessity to consider multifaceted interactions between different genes and systems to design effective CRISPR-based antimicrobials.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Heterogeneous diversity of spacers within CRISPR",
+                "url": "http://arxiv.org/abs/1008.2714v1",
+                "snippet": "Clustered regularly interspaced short palindromic repeats (CRISPR) in bacterial and archaeal DNA have recently been shown to be a new type of anti-viral immune system in these organisms. We here study the diversity of spacers in CRISPR under selective pressure. We propose a population dynamics model that explains the biological observation that the leader-proximal end of CRISPR is more diversified and the leader-distal end of CRISPR is more conserved. This result is shown to be in agreement with recent experiments. Our results show thatthe CRISPR spacer structure is influenced by and provides a record of the viral challenges that bacteria face.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "DeepFM-Crispr: Prediction of CRISPR On-Target Effects via Deep Learning",
+                "url": "http://arxiv.org/abs/2409.05938v1",
+                "snippet": "Since the advent of CRISPR-Cas9, a groundbreaking gene-editing technology that enables precise genomic modifications via a short RNA guide sequence, there has been a marked increase in the accessibility and application of this technology across various fields. The success of CRISPR-Cas9 has spurred further investment and led to the discovery of additional CRISPR systems, including CRISPR-Cas13. Distinct from Cas9, which targets DNA, Cas13 targets RNA, offering unique advantages for gene modulation. We focus on Cas13d, a variant known for its collateral activity where it non-specifically cleaves adjacent RNA molecules upon activation, a feature critical to its function. We introduce DeepFM-Crispr, a novel deep learning model developed to predict the on-target efficiency and evaluate the off-target effects of Cas13d. This model harnesses a large language model to generate comprehensive representations rich in evolutionary and structural data, thereby enhancing predictions of RNA secondary structures and overall sgRNA efficacy. A transformer-based architecture processes these inputs to produce a predictive efficacy score. Comparative experiments show that DeepFM-Crispr not only surpasses traditional models but also outperforms recent state-of-the-art deep learning methods in terms of prediction accuracy and reliability.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.38022980000823736,
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "parallel": [
+      {
+        "query": "photosynthesis",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Photosynthesis",
+                "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+                "snippet": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants, algae and cyanobacteria, convert light energy\u2014typically from sunlight\u2014into the chemical energy necessary to fuel their metabolism. The term photosynthesis usually refers to oxygenic photosynthesis, a process that releases oxygen as a byproduct of water splitting. Photosynthetic organisms store the converted chemical energy within the bonds of intracellular organic compounds, typically carbohydrates like sugars, starches, phytoglycogen and cellulose. When needing to use this stored energy, an organism's cells then metabolize the organic compounds through cellular respiration. Photosynthesis plays a critical role in producing and maintaining the oxygen content of the Earth's atmosphere, and it supplies most of the biological energy necessary for complex life on Earth.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Photosynthetic efficiency",
+                "url": "https://en.wikipedia.org/wiki/Photosynthetic_efficiency",
+                "snippet": "The photosynthetic efficiency (i.e. oxygenic photosynthesis efficiency) is the fraction of light energy converted into chemical energy during photosynthesis in green plants and algae. Photosynthesis can be described by the simplified chemical reaction6 H2O + 6 CO2 + energy \u2192 C6H12O6 + 6 O2",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Photosynthesis system",
+                "url": "https://en.wikipedia.org/wiki/Photosynthesis_system",
+                "snippet": "Photosynthesis systems are electronic scientific instruments designed for non-destructive measurement of photosynthetic rates in the field. Photosynthesis systems are commonly used in agronomic and environmental research, as well as studies of the global carbon cycle.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.099967800080776,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Energy conversion in Purple Bacteria Photosynthesis",
+                "url": "http://arxiv.org/abs/1107.0191v1",
+                "snippet": "The study of how photosynthetic organisms convert light offers insight not only into nature's evolutionary process, but may also give clues as to how best to design and manipulate artificial photosynthetic systems -- and also how far we can drive natural photosynthetic systems beyond normal operating conditions, so that they can harvest energy for us under otherwise extreme conditions. In addition to its interest from a basic scientific perspective, therefore, the goal to develop a deep quantitative understanding of photosynthesis offers the potential payoff of enhancing our current arsenal of alternative energy sources for the future. In the following Chapter, we consider the trade-off between dynamics, structure and function of light harvesting membranes in Rps. Photometricum purple bacteria, as a model to highlight the priorities that arise when photosynthetic organisms adapt to deal with the ever-changing natural environment conditions.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Can the photosynthesis first step quantum mechanism be explained?",
+                "url": "http://arxiv.org/abs/1005.1337v1",
+                "snippet": "Photosynthesis first step mechanism concerns the sunlight absorption and both negative and positive charges separation. Recent and important photosynthesis literature claims that this mechanism is quantum mechanics controlled, however without presenting qualitative or quantitative scientifically based mechanism. The present accepted and old-fashioned photosynthesis mechanism model suffers from few drawbacks and an important issue is the absence of driving force for negative and positive charges separation. This article presents a new qualitative model for this first step mechanism in natural catalytic systems such as photosynthesis in green leaves. The model uses a concept of semiconductor band gap engineering, such as the staggered energy band gap line-up in semiconductors. To explain the primary mechanism in natural photosynthesis the proposal is the following: incident light is absorbed inside the leaves causing charges separation. The only energetic configuration that allows charges separation under illumination is the staggered one between two materials or molecules. We explain why (e-, h+) interacting charges can be separated by using an energy staggered configuration, under illumination. Following this model, the green light of plants can be seen as related to the spent energy for charges separation. Green colour being mostly an emission and not a reflection as currently presented. The arguments mentioned below show why we cannot explain the photosynthesis first step mechanism, based on the presently accepted model, and therefore the alternative model is presented.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "PhoTorch: A robust and generalized biochemical photosynthesis model fitting package based on PyTorch",
+                "url": "http://arxiv.org/abs/2501.15484v1",
+                "snippet": "Advancements in artificial intelligence (AI) have greatly benefited plant phenotyping and predictive modeling. However, unrealized opportunities exist in leveraging AI advancements in model parameter optimization for parameter fitting in complex biophysical models. This work developed novel software, PhoTorch, for fitting parameters of the Farquhar, von Caemmerer, and Berry (FvCB) biochemical photosynthesis model based the parameter optimization components of the popular AI framework PyTorch. The primary novelty of the software lies in its computational efficiency, robustness of parameter estimation, and flexibility in handling different types of response curves and sub-model functional forms. PhoTorch can fit both steady-state and non-steady-state gas exchange data with high efficiency and accuracy. Its flexibility allows for optional fitting of temperature and light response parameters, and can simultaneously fit light response curves and standard A/Ci curves. These features are not available within presently available A/Ci curve fitting packages. Results illustrated the robustness and efficiency of PhoTorch in fitting A/Ci curves with high variability and some level of artifacts and noise. PhoTorch is more than four times faster than benchmark software, which may be relevant when processing many non-steady-state A/Ci curves with hundreds of data points per curve. PhoTorch provides researchers from various fields with a reliable and efficient tool for analyzing photosynthetic data. The Python package is openly accessible from the repository: https://github.com/GEMINI-Breeding/photorch.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.3074012000579387,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "transformer",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Transformer",
+                "url": "https://en.wikipedia.org/wiki/Transformer",
+                "snippet": "In electrical engineering, a transformer is a passive component that transfers electrical energy from one electrical circuit to another circuit, or multiple circuits. A varying current in any coil of the transformer produces a varying magnetic flux in the transformer's core, which induces a varying electromotive force (EMF) across any other coils wound around the same core. Electrical energy can be transferred between separate coils without a metallic (conductive) connection between the two circuits. Faraday's law of induction, discovered in 1831, describes the induced voltage effect in any coil due to a changing magnetic flux encircled by the coil.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Transformers (film series)",
+                "url": "https://en.wikipedia.org/wiki/Transformers_(film_series)",
+                "snippet": "Transformers is a series of science fiction action films based on the Transformers franchise. Michael Bay directed the first five live action films: Transformers (2007), Revenge of the Fallen (2009), Dark of the Moon (2011), Age of Extinction (2014), and The Last Knight (2017), and has served as a producer for subsequent films. A sixth film, Bumblebee, directed by Travis Knight, was released in 2018; a seventh film, Rise of the Beasts, directed by Steven Caple Jr., was released in 2023.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Transformers",
+                "url": "https://en.wikipedia.org/wiki/Transformers",
+                "snippet": "Transformers is a mecha media franchise produced by American toy company Hasbro and Japanese toy company Takara Tomy. It primarily follows the heroic Autobots and the villainous Decepticons, two alien robot factions at war that can transform into other forms, such as vehicles and animals. The franchise encompasses toys, animation, comic books, video games and films. As of 2011, it generated more than \u00a52 trillion in revenue, making it one of the highest-grossing media franchises of all time.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 4.009071500040591,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "PyramidTNT: Improved Transformer-in-Transformer Baselines with Pyramid Architecture",
+                "url": "http://arxiv.org/abs/2201.00978v1",
+                "snippet": "Transformer networks have achieved great progress for computer vision tasks. Transformer-in-Transformer (TNT) architecture utilizes inner transformer and outer transformer to extract both local and global representations. In this work, we present new TNT baselines by introducing two advanced designs: 1) pyramid architecture, and 2) convolutional stem. The new \"PyramidTNT\" significantly improves the original TNT by establishing hierarchical representations. PyramidTNT achieves better performances than the previous state-of-the-art vision transformers such as Swin Transformer. We hope this new baseline will be helpful to the further research and application of vision transformer. Code will be available at https://github.com/huawei-noah/CV-Backbones/tree/master/tnt_pytorch.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Learning to Cluster Faces via Transformer",
+                "url": "http://arxiv.org/abs/2104.11502v1",
+                "snippet": "Face clustering is a useful tool for applications like automatic face annotation and retrieval. The main challenge is that it is difficult to cluster images from the same identity with different face poses, occlusions, and image quality. Traditional clustering methods usually ignore the relationship between individual images and their neighbors which may contain useful context information. In this paper, we repurpose the well-known Transformer and introduce a Face Transformer for supervised face clustering. In Face Transformer, we decompose the face clustering into two steps: relation encoding and linkage predicting. Specifically, given a face image, a \\textbf{relation encoder} module aggregates local context information from its neighbors and a \\textbf{linkage predictor} module judges whether a pair of images belong to the same cluster or not. In the local linkage graph view, Face Transformer can generate more robust node and edge representations compared to existing methods. Experiments on both MS-Celeb-1M and DeepFashion show that our method achieves state-of-the-art performance, e.g., 91.12\\% in pairwise F-score on MS-Celeb-1M.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "MLP Can Be A Good Transformer Learner",
+                "url": "http://arxiv.org/abs/2404.05657v1",
+                "snippet": "Self-attention mechanism is the key of the Transformer but often criticized for its computation demands. Previous token pruning works motivate their methods from the view of computation redundancy but still need to load the full network and require same memory costs. This paper introduces a novel strategy that simplifies vision transformers and reduces computational load through the selective removal of non-essential attention layers, guided by entropy considerations. We identify that regarding the attention layer in bottom blocks, their subsequent MLP layers, i.e. two feed-forward layers, can elicit the same entropy quantity. Meanwhile, the accompanied MLPs are under-exploited since they exhibit smaller feature entropy compared to those MLPs in the top blocks. Therefore, we propose to integrate the uninformative attention layers into their subsequent counterparts by degenerating them into identical mapping, yielding only MLP in certain transformer blocks. Experimental results on ImageNet-1k show that the proposed method can remove 40% attention layer of DeiT-B, improving throughput and memory bound without performance compromise. Code is available at https://github.com/sihaoevery/lambda_vit.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.2650359000544995,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "financial crisis",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Financial crisis",
+                "url": "https://en.wikipedia.org/wiki/Financial_crisis",
+                "snippet": "A financial crisis is any of a broad variety of situations in which some financial assets suddenly lose a large part of their nominal value. A broader reduction of economic activity affecting the whole economy is known as an economic crisis. In the 19th and early 20th centuries, many financial crises were associated with banking panics, and many recessions coincided with these panics. Other situations that are often called financial crises include stock market crashes and the bursting of other financial bubbles, currency crises, and sovereign defaults. Financial crises directly result in a loss of paper wealth but do not necessarily result in significant changes in the real economy.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Financial Crisis Inquiry Commission",
+                "url": "https://en.wikipedia.org/wiki/Financial_Crisis_Inquiry_Commission",
+                "snippet": "The Financial Crisis Inquiry Commission (FCIC) was established in 2010 in the United States to investigate the causes of the 2008 financial crisis. The commission, led by Phil Angelides, held public hearings, gathered testimony from hundreds, and released its report in January 2011.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Financial crisis of 33",
+                "url": "https://en.wikipedia.org/wiki/Financial_crisis_of_33",
+                "snippet": "A financial and economic crisis occurred in 33 AD in the Roman Empire, during the reign of Emperor Tiberius. After a shift in government policy and a series of confiscations reduced the Roman money supply, the crisis was triggered by the invocation of an old law which resulted in the early recalls of loans given, a credit crunch, and a crash of real estate prices. The crisis was eventually resolved with a liquidity injection in the form of interest-free loans.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.9609834000002593,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Financial Bubbles, Real Estate bubbles, Derivative Bubbles, and the Financial and Economic Crisis",
+                "url": "http://arxiv.org/abs/0905.0220v1",
+                "snippet": "The financial crisis of 2008, which started with an initially well-defined epicenter focused on mortgage backed securities (MBS), has been cascading into a global economic recession, whose increasing severity and uncertain duration has led and is continuing to lead to massive losses and damage for billions of people. Heavy central bank interventions and government spending programs have been launched worldwide and especially in the USA and Europe, with the hope to unfreeze credit and boltster consumption. Here, we present evidence and articulate a general framework that allows one to diagnose the fundamental cause of the unfolding financial and economic crisis: the accumulation of several bubbles and their interplay and mutual reinforcement has led to an illusion of a \"perpetual money machine\" allowing financial institutions to extract wealth from an unsustainable artificial process. Taking stock of this diagnostic, we conclude that many of the interventions to address the so-called liquidity crisis and to encourage more consumption are ill-advised and even dangerous, given that precautionary reserves were not accumulated in the \"good times\" but that huge liabilities were. The most \"interesting\" present times constitute unique opportunities but also great challenges, for which we offer a few recommendations.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Risk-dependent centrality in economic and financial networks",
+                "url": "http://arxiv.org/abs/1907.07908v4",
+                "snippet": "Node centrality is one of the most important and widely used concepts in the study of complex networks. Here, we extend the paradigm of node centrality in financial and economic networks to consider the changes of node \"importance\" produced not only by the variation of the topology of the system but also as a consequence of the external levels of risk to which the network as a whole is submitted. Starting from the \"Susceptible-Infected\" (SI) model of epidemics and its relation to the communicability functions of networks we develop a series of risk-dependent centralities for nodes in (financial and economic) networks. We analyze here some of the most important mathematical properties of these risk-dependent centrality measures. In particular, we study the newly observed phenomenon of ranking interlacement, by means of which two entities may interlace their ranking positions in terms of risk in the network as a consequence of the change in the external conditions only, i.e., without any change in the topology. We test the risk-dependent centralities by studying two real-world systems: the network generated by collecting assets of the S\\&P 100 and the corporate board network of the US top companies, according to Forbes in 1999. We found that a high position in the ranking of the analyzed financial companies according to their risk-dependent centrality corresponds to companies more sensitive to the external market variations during the periods of crisis.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "The Federal Reserve's Response to the Global Financial Crisis and Its Long-Term Impact: An Interrupted Time-Series Natural Experimental Analysis",
+                "url": "http://arxiv.org/abs/2305.12318v1",
+                "snippet": "This paper examines the monetary policies the Federal Reserve implemented in response to the Global Financial Crisis. More specifically, it analyzes the Federal Reserve's quantitative easing (QE) programs, liquidity facilities, and forward guidance operations conducted from 2007 to 2018. The essay's detailed examination of these policies culminates in an interrupted time-series (ITS) analysis of the long-term causal effects of the QE programs on U.S. inflation and real GDP. The results of this formal design-based natural experimental approach show that the QE operations positively affected U.S. real GDP but did not significantly impact U.S. inflation. Specifically, it is found that, for the 2011Q2-2018Q4 post-QE period, real GDP per capita in the U.S. increased by an average of 231 dollars per quarter relative to how it would have changed had the QE programs not been conducted. Moreover, the results show that, in 2018Q4, ten years after the beginning of the QE programs, real GDP per capita in the U.S. was 14% higher relative to what it would have been during that quarter had there not been the QE programs. These findings contradict Williamson's (2017) informal natural experimental evidence and confirm the conclusions of VARs and new Keynesian DSGE models that the Federal Reserve's QE policies positively affected U.S. real GDP. The results suggest that the current U.S. and worldwide high inflation rates are likely not because of the QE programs implemented in response to the financial crisis that accompanied the COVID-19 pandemic. They are likely due to the unprecedentedly large fiscal stimulus packages used, the peculiar nature of the financial downturn itself, the negative supply shocks from the war in Ukraine, or a combination of these factors. This paper is the first study to measure the macroeconomic effects of QE using a design-based natural experimental approach.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.25839400000404567,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "fusion energy",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "Fusion power",
+                "url": "https://en.wikipedia.org/wiki/Fusion_power",
+                "snippet": "Fusion power is a potential method of electric power generation from heat released by nuclear fusion reactions. In fusion, two light atomic nuclei combine to form a heavier nucleus and release energy. Devices that use this process are known as fusion reactors.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Fusion energy gain factor",
+                "url": "https://en.wikipedia.org/wiki/Fusion_energy_gain_factor",
+                "snippet": "A fusion energy gain factor, usually expressed with the symbol Q, is the ratio of fusion power produced in a nuclear fusion reactor to the power required to maintain the plasma in a steady state. The condition of Q = 1, when the power being released by the fusion reactions is equal to the required heating power, is referred to as breakeven, or in some sources, scientific breakeven.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "Fusion Energy Foundation",
+                "url": "https://en.wikipedia.org/wiki/Fusion_Energy_Foundation",
+                "snippet": "Fusion Energy Foundation (FEF) was an American non-profit think tank co-founded by Lyndon LaRouche in 1974 in New York. It promoted the construction of nuclear power plants, research into fusion power and beam weapons and other causes. The FEF was called fusion's greatest private supporter. It was praised by scientists like John Clarke, who said that the fusion community owed it a \"debt of gratitude\". By 1980, its main publication, Fusion, claimed 80,000 subscribers.",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.9531029999488965,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Retrospective of the ARPA-E ALPHA fusion program",
+                "url": "http://arxiv.org/abs/1907.09921v2",
+                "snippet": "This paper provides a retrospective of the ALPHA (Accelerating Low-cost Plasma Heating and Assembly) fusion program of the Advanced Research Projects Agency-Energy (ARPA-E) of the U.S. Department of Energy. ALPHA's objective was to catalyze research and development efforts to enable substantially lower-cost pathways to economical fusion power. To do this in a targeted, focused program, ALPHA focused on advancing the science and technology of pulsed, intermediate-density fusion approaches, including magneto-inertial fusion and Z-pinch variants, that have the potential to scale to commercially viable fusion power plants. The paper includes a discussion of the origins and framing of the ALPHA program, a summary of project status and outcomes, a description of associated technology-transition activities, and thoughts on a potential follow-on ARPA-E fusion program.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Challenges and opportunities for AI to help deliver fusion energy",
+                "url": "http://arxiv.org/abs/2603.25777v2",
+                "snippet": "There is great potential for the application of AI tools in fusion research, and substantial worldwide benefit if fusion power is realised. However, using AI comes with its own challenges, many of which can be mitigated if responsible and robust methodologies are built into existing approaches. To do that requires close, long-term collaborations between fusion domain experts and AI developers and awareness of the fact that not all problems in fusion research are best tackled with AI tools. In April 2025, experts from academia, industry, UKAEA and STFC discussed how AI can be used to advance R&D in fusion energy at the first edition of The Economist FusionFest event. This Perspective is an expanded and updated summary of the round table discussion, providing more context and examples.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "The Dark Energy Survey",
+                "url": "http://arxiv.org/abs/astro-ph/0510346v1",
+                "snippet": "We describe the Dark Energy Survey (DES), a proposed optical-near infrared survey of 5000 sq. deg of the South Galactic Cap to ~24th magnitude in SDSS griz, that would use a new 3 sq. deg CCD camera to be mounted on the Blanco 4-m telescope at Cerro Telolo Inter-American Observatory (CTIO). The survey data will allow us to measure the dark energy and dark matter densities and the dark energy equation of state through four independent methods: galaxy clusters, weak gravitational lensing tomography, galaxy angular clustering, and supernova distances. These methods are doubly complementary: they constrain different combinations of cosmological model parameters and are subject to different systematic errors. By deriving the four sets of measurements from the same data set with a common analysis framework, we will obtain important cross checks of the systematic errors and thereby make a substantial and robust advance in the precision of dark energy measurements.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.30011860001832247,
+            "note": ""
+          }
+        ]
+      },
+      {
+        "query": "CRISPR",
+        "sources": [
+          {
+            "name": "wiki",
+            "sources": [
+              {
+                "title": "CRISPR",
+                "url": "https://en.wikipedia.org/wiki/CRISPR",
+                "snippet": "CRISPR is a family of DNA sequences found in the genomes of prokaryotic organisms such as bacteria and archaea. Each sequence within an individual prokaryotic CRISPR is derived from a DNA fragment of a bacteriophage that had previously infected the prokaryote or one of its ancestors. These sequences are used to detect and destroy DNA from similar bacteriophages during subsequent infections. Hence these sequences play a key role in the antiviral defense system of prokaryotes and provide a form of heritable, acquired immunity. CRISPR is found in approximately 50% of sequenced bacterial genomes and nearly 90% of sequenced archaea.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "CRISPR gene editing",
+                "url": "https://en.wikipedia.org/wiki/CRISPR_gene_editing",
+                "snippet": "CRISPR gene editing is a genetic engineering technique in molecular biology by which the genomes of living organisms may be modified. It is based on a simplified version of the bacterial CRISPR-Cas9 antiviral defense system. By delivering the Cas9 nuclease complexed with a synthetic guide RNA (gRNA) into a cell, the cell's genome can be cut at a desired location, allowing existing genes to be removed or new ones added in vivo.",
+                "origin": "wikipedia"
+              },
+              {
+                "title": "CRISPR interference",
+                "url": "https://en.wikipedia.org/wiki/CRISPR_interference",
+                "snippet": "CRISPR interference (CRISPRi) is a genetic perturbation technique that allows for sequence-specific repression of gene expression in prokaryotic and eukaryotic cells. It was first developed by Stanley Qi and colleagues in the laboratories of Wendell Lim, Adam Arkin, Jonathan Weissman, and Jennifer Doudna. Sequence-specific activation of gene expression refers to CRISPR activation (CRISPRa).",
+                "origin": "wikipedia"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 3.9718513999832794,
+            "note": ""
+          },
+          {
+            "name": "arxiv",
+            "sources": [
+              {
+                "title": "Investigating the genomic background of CRISPR-Cas genomes for CRISPR-based antimicrobials",
+                "url": "http://arxiv.org/abs/2202.07171v1",
+                "snippet": "CRISPR-Cas systems are an adaptive immunity that protects prokaryotes against foreign genetic elements. Genetic templates acquired during past infection events enable DNA-interacting enzymes to recognize foreign DNA for destruction. Due to the programmability and specificity of these genetic templates, CRISPR-Cas systems are potential alternative antibiotics that can be engineered to self-target antimicrobial resistance genes on the chromosome or plasmid. However, several fundamental questions remain to repurpose these tools against drug-resistant bacteria. For endogenous CRISPR-Cas self-targeting, antimicrobial resistance genes and functional CRISPR-Cas systems have to co-occur in the target cell. Furthermore, these tools have to outplay DNA repair pathways that respond to the nuclease activities of Cas proteins, even for exogenous CRISPR-Cas delivery. Here, we conduct a comprehensive survey of CRISPR-Cas genomes. First, we address the co-occurrence of CRISPR-Cas systems and antimicrobial resistance genes in the CRISPR-Cas genomes. We show that the average number of these genes varies greatly by the CRISPR-Cas type, and some CRISPR-Cas types (IE and IIIA) have over 20 genes per genome. Next, we investigate the DNA repair pathways of these CRISPR-Cas genomes, revealing that the diversity and frequency of these pathways differ by the CRISPR-Cas type. The interplay between CRISPR-Cas systems and DNA repair pathways is essential for the acquisition of new spacers in CRISPR arrays. We conduct simulation studies to demonstrate that the efficiency of these DNA repair pathways may be inferred from the time-series patterns in the RNA structure of CRISPR repeats. This bioinformatic survey of CRISPR-Cas genomes elucidates the necessity to consider multifaceted interactions between different genes and systems to design effective CRISPR-based antimicrobials.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "Heterogeneous diversity of spacers within CRISPR",
+                "url": "http://arxiv.org/abs/1008.2714v1",
+                "snippet": "Clustered regularly interspaced short palindromic repeats (CRISPR) in bacterial and archaeal DNA have recently been shown to be a new type of anti-viral immune system in these organisms. We here study the diversity of spacers in CRISPR under selective pressure. We propose a population dynamics model that explains the biological observation that the leader-proximal end of CRISPR is more diversified and the leader-distal end of CRISPR is more conserved. This result is shown to be in agreement with recent experiments. Our results show thatthe CRISPR spacer structure is influenced by and provides a record of the viral challenges that bacteria face.",
+                "origin": "arxiv"
+              },
+              {
+                "title": "DeepFM-Crispr: Prediction of CRISPR On-Target Effects via Deep Learning",
+                "url": "http://arxiv.org/abs/2409.05938v1",
+                "snippet": "Since the advent of CRISPR-Cas9, a groundbreaking gene-editing technology that enables precise genomic modifications via a short RNA guide sequence, there has been a marked increase in the accessibility and application of this technology across various fields. The success of CRISPR-Cas9 has spurred further investment and led to the discovery of additional CRISPR systems, including CRISPR-Cas13. Distinct from Cas9, which targets DNA, Cas13 targets RNA, offering unique advantages for gene modulation. We focus on Cas13d, a variant known for its collateral activity where it non-specifically cleaves adjacent RNA molecules upon activation, a feature critical to its function. We introduce DeepFM-Crispr, a novel deep learning model developed to predict the on-target efficiency and evaluate the off-target effects of Cas13d. This model harnesses a large language model to generate comprehensive representations rich in evolutionary and structural data, thereby enhancing predictions of RNA secondary structures and overall sgRNA efficacy. A transformer-based architecture processes these inputs to produce a predictive efficacy score. Comparative experiments show that DeepFM-Crispr not only surpasses traditional models but also outperforms recent state-of-the-art deep learning methods in terms of prediction accuracy and reliability.",
+                "origin": "arxiv"
+              }
+            ],
+            "status": "ok",
+            "elapsed": 0.2628366999560967,
+            "note": ""
+          }
+        ]
+      }
+    ]
+  }
+}

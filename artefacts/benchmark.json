@@ -1,0 +1,30 @@
+{
+  "mode": "simulated HTTP, 150ms per source, no rate pacing",
+  "python": "3.12.14",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "questions": 5,
+  "sources": [
+    "wiki",
+    "arxiv",
+    "web"
+  ],
+  "repeats": 3,
+  "cache": "bypassed for reads and writes",
+  "concurrency": 3,
+  "raw_seconds": {
+    "sequential": [
+      2.412813700037077,
+      2.4120866999728605,
+      2.3978803999489173
+    ],
+    "parallel": [
+      0.8185458000516519,
+      0.7948999999789521,
+      0.8015576000325382
+    ]
+  },
+  "median_sequential": 2.4120866999728605,
+  "median_parallel": 0.8015576000325382,
+  "speedup": 3.0092493663274418,
+  "failed_or_empty": 0
+}
