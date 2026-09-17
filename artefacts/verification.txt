@@ -1,21 +1,6 @@
-VerteX Research Assistant v1.1.0 — local verification
-Tests: 114 passed; failures=0; errors=0
-Application line coverage: 93.91% (minimum60%)
-Ruff: passed. Mypy: passed,17 source files.
-Course AI/smoke/demo/data: byte-identical checks passed.
-Five sample questions: passed via actual isolated venv and Windows run_demo.cmd.
-Streamlit: automated AppTest and browser sample workflow passed.
-Malformed Wikipedia JSON regression: passed.
-Web failover chaos/integration and token-budget exhaustion/concurrency: passed offline.
-Gemini hidden-key setup: tested with a fake key; no real key included.
-Live Wikipedia/arXiv: five topical queries, zero failed/empty results.
-Real retrieval benchmark:19.656s sequential/19.288s parallel,1.02x,one repetition.
-Synthetic retrieval benchmark: separate3source simulation,~3.01x.
-Documents:10 report pages,11 slides,1 unsigned contribution page; rendered and inspected.
-Docker: build, five-question offline CLI, doctor and container UI HTTP200 health PASSED.
-User executed verify_docker.cmd in the host session; saved log inspected.
-Image size:338,510,564 bytes; no <=250 MB bonus claimed.
-Live LLM: no user key configured; not yet verified.
-Hosted CI/main protection/reviews/tag/submission: not observed or performed.
-Signatures/actual member contributions: must be completed truthfully by the team.
-Host-only test harness fixes Windows sandbox temp-directory permissions; not shipped.
+2026-09-17 final local verification
+121 tests passed in 14.32s
+Coverage: 93.85% (878 statements, 54 missing)
+Ruff: All checks passed
+Mypy: Success, 18 source files
+See final-verification.json for environment and provenance. Historical Docker/benchmarks are separate.

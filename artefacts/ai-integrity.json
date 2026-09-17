@@ -3,43 +3,59 @@
   "files": [
     {
       "file": "ai/schemas.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/sources.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/synthesizer.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/__init__.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/providers/anthropic.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/providers/base.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/providers/factory.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/providers/google.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/providers/openai.py",
-      "matches_original_text": true
+      "identical": true
     },
     {
       "file": "ai/providers/__init__.py",
-      "matches_original_text": true
+      "identical": true
+    },
+    {
+      "file": "tests/test_ai_smoke.py",
+      "identical": true
+    },
+    {
+      "file": "tests/conftest.py",
+      "identical": true
+    },
+    {
+      "file": "data/research_questions.json",
+      "identical": true
+    },
+    {
+      "file": "demo_ai.py",
+      "identical": true
     }
   ]
 }
