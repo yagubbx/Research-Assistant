@@ -37,7 +37,7 @@ def diagnose(settings: Settings, offline: bool, sources: list[str]) -> HealthRep
         ]
         modules = [module]
         if "web" in sources and settings.web_search_provider == "duckduckgo":
-            modules.append("duckduckgo_search")
+            modules.append("ddgs")
         for name in modules:
             try:
                 found = importlib.util.find_spec(name) is not None

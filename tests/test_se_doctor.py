@@ -7,6 +7,20 @@ from researcher.config import Settings
 from researcher.doctor import diagnose, render_health
 
 
+def test_live_web_checks_current_ddgs_adapter(monkeypatch):
+    monkeypatch.setenv("GOOGLE_API_KEY", "test-only")
+    checked = []
+
+    def available(name):
+        checked.append(name)
+        return object() if name in {"google.genai", "ddgs"} else None
+
+    monkeypatch.setattr("researcher.doctor.importlib.util.find_spec", available)
+    report = diagnose(Settings(llm_provider="gemini", web_search_provider="duckduckgo"), False, ["web"])
+    assert report.ready
+    assert checked == ["google.genai", "ddgs"]
+
+
 def test_offline_needs_no_optional_provider(monkeypatch):
     monkeypatch.setattr("researcher.doctor.importlib.util.find_spec", lambda name: None)
     report = diagnose(Settings(), True, ["wiki"])
