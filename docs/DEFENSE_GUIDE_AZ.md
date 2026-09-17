@@ -68,3 +68,9 @@ Hər üzv bir core testi seçsin, nəticəni əvvəlcədən izah edib işlətsin
 Canlı Render nümunəsi: 23.21 saniyə, 3 mənbə və 3 istinad; bütün suallar üçün zəmanət yoxdur.
 Problemləri docs/PROBLEMS_AND_SOLUTIONS.md üzrə simptom, həll və sübut ardıcıllığında izah edin.
 Slayd 6-da real inteqrasiya problemləri var. Hər üç üzv danışmalı, başqasının modulunu da ümumi səviyyədə izah etməlidir.
+
+## Team contribution account
+
+The coordinator reports approximately 90% joint working sessions, with implementation commits submitted through Yaqub's computer/account. Completed responsibility allocation according to that account: Yaqub — CLI/core/config/models and integration/deploy; Səbuhi — service/worker/resilience/search/bonuses; Aqil — cache/validation/offline/UI and acceptance/document consistency. This is a team-reported allocation, not independently verified sole authorship or proof of individual test execution.
+
+Verified main@fdfcb60: Yaqub 7/9 commits (77.78%), Səbuhi 2/9 (22.22%, both PR #1/#2 merges), Aqil 0/9 (0%). All non-merge commits are under Yaqub's identity. Git counts do not measure labor share. Refresh this snapshot after further merges. See the filled contribution statement; each member must confirm/correct their account and sign personally. AI assistance remains disclosed. The instructor decides whether centralized commits satisfy contribution requirements.

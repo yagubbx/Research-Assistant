@@ -58,3 +58,9 @@ Citation validation is structural and rejects uncited sentences, but does not pr
 5. Push `v1.0-final` after acceptance and submit using the instructor's current instructions.
 
 The supplied brief states May 23, 2026 as the deadline. This package was prepared September 16, 2026; any revised schedule or exception must come from the instructor.
+
+## Team contribution account
+
+The coordinator reports approximately 90% joint working sessions, with implementation commits submitted through Yaqub's computer/account. Completed responsibility allocation according to that account: Yaqub — CLI/core/config/models and integration/deploy; Səbuhi — service/worker/resilience/search/bonuses; Aqil — cache/validation/offline/UI and acceptance/document consistency. This is a team-reported allocation, not independently verified sole authorship or proof of individual test execution.
+
+Verified main@fdfcb60: Yaqub 7/9 commits (77.78%), Səbuhi 2/9 (22.22%, both PR #1/#2 merges), Aqil 0/9 (0%). All non-merge commits are under Yaqub's identity. Git counts do not measure labor share. Refresh this snapshot after further merges. See the filled contribution statement; each member must confirm/correct their account and sign personally. AI assistance remains disclosed. The instructor decides whether centralized commits satisfy contribution requirements.
