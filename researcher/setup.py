@@ -11,7 +11,7 @@ def main() -> None:
     target = Path(__file__).resolve().parent.parent / ".env"
     print("Create a Free Tier key: https://aistudio.google.com/apikey")
     print("Choose a model available on your account's free tier. Billing is not enabled by this script.")
-    model = input("Model [gemini-2.5-flash]: ").strip() or "gemini-2.5-flash"
+    model = input("Model [gemini-3.1-flash-lite]: ").strip() or "gemini-3.1-flash-lite"
     secret = getpass.getpass("Gemini API key (hidden): ").strip()
     if not secret or any(c.isspace() for c in secret):
         raise ValueError("A non-empty API key without whitespace is required.")

@@ -13,7 +13,7 @@ Configure environment variables in Render:
 | Variable | Value |
 |---|---|
 | LLM_PROVIDER | gemini |
-| LLM_MODEL | gemini-3.6-flash |
+| LLM_MODEL | gemini-3.1-flash-lite |
 | WEB_SEARCH_PROVIDER | duckduckgo |
 | GOOGLE_API_KEY | Your private key, entered only in Render |
 | RESEARCH_LOG_LEVEL | WARNING |
