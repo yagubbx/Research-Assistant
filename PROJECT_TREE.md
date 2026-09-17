@@ -140,3 +140,6 @@ ResearchAssistant/
 | docs/fonts/ | PDF üçün lisenziyalı fontlar; sizin yazdığınız kod deyil |
 
 .venv, .git, __pycache__, .pyc, .cache və şəxsi .env təhvil ZIP-inə daxil deyil. Quraşdırılmış cryptography/hazmat kimi kitabxanalar üçün müəlliflik daşımırsınız; hansı dependency-nin niyə istifadə edildiyini izah etməlisiniz.
+
+Signature assets: report/signatures/yaqub.jpeg, sebuhi.jpeg, aqil.jpeg. These accompany the editable contribution_statement.tex.
+
