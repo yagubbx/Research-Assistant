@@ -3,34 +3,38 @@
 \usepackage{fontspec}\setmainfont{NotoSerif}[Path=../docs/fonts/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
 \usepackage{tabularx,booktabs,parskip,hyperref}
 \begin{document}
-\begin{center}{\LARGE\bfseries Contribution Statement}\\VerteX -- Topic 4: Async Research Assistant\end{center}
+\sloppy
+\begin{center}{\Large\bfseries Contribution Statement}\\VerteX -- Topic 4: Async Research Assistant\end{center}
 \textbf{Repository:} \url{https://github.com/yagubbx/Research-Assistant}\\
-\textbf{Target final tag:} \texttt{v1.0-final}\quad\textbf{Status:} Unsigned; actual contribution record required.
+\textbf{Target final tag:} \texttt{v1.0-final}. \textbf{Status:} Prepared for member signatures.
 
-This statement follows the course template's ownership, co-ownership, review, commit-share and signature categories. PR 1 was merged by KhamiyevSebuhi (b56bd18), according to the supplied GitHub view. A merge alone does not establish code ownership or formal approval. Each member must enter their actual work below before signing. Commit shares must reflect the repository history and add to 100\%.
+\textbf{Team account.} Yaqub reports that approximately 90\% of the work was undertaken together and implementation commits were submitted from his computer/account. The completed responsibility allocation below records that team account; it is not independent proof of individual authorship. Each member confirms or corrects their entry before signing.
 
 \textbf{Yaqub Xəlilli (\texttt{@yagubbx})}\\
-Owned files / PRs: \hrulefill\\
-Co-owned files / PRs: \hrulefill\\
-Reviewed PRs: \hrulefill\quad Commit share: \rule{1.4cm}{0.3pt}\%
+\textbf{Owned responsibility:} Integration and delivery; \texttt{cli.py}, \texttt{core.py}, \texttt{config.py}, \texttt{models.py}; deployment and submission package coordination.\\
+\textbf{Co-owned:} Shared implementation and document preparation with Səbuhi and Aqil, as reported by the team coordinator; substantial AI assistance disclosed below.\\
+\textbf{PRs / tests:} Submitted PRs \#1 and \#2; relevant evidence includes \texttt{test\_se\_core.py} and \texttt{test\_se\_cli\_service.py}. Recorded automated execution was assisted by Codex, not attributed as a separate personal run.\\
+\textbf{Reviewed:} Shared working-session review reported; no separate formal GitHub approval attributed. \textbf{Commit share:} 7/9 = 77.78\%.
 
 \textbf{Səbuhi Xamiyev (\texttt{@KhamiyevSebuhi})}\\
-Owned files / PRs: \hrulefill\\
-Co-owned files / PRs: \hrulefill\\
-Reviewed PRs: \hrulefill\quad Commit share: \rule{1.4cm}{0.3pt}\%
+\textbf{Owned responsibility:} AI/service boundary, worker, retry/timeout, search and bonuses: \texttt{service.py}, \texttt{worker.py}, \texttt{resilience.py}, \texttt{search.py}, \texttt{bonuses.py}.\\
+\textbf{Co-owned:} Shared development with Yaqub and Aqil, per the coordinator's account; sole manual authorship is not claimed.\\
+\textbf{PRs / tests:} Merged PRs \#1 and \#2; corresponding test areas are resilience, citation retry, search and bonuses. Individual execution is not separately evidenced.\\
+\textbf{Reviewed:} Shared working-session review reported; the merges are verified, formal approval content is not. \textbf{Commit share:} 2/9 = 22.22\% (merge commits).
 
 \textbf{Aqil Əsgərov (\texttt{@agilasgarli-sys})}\\
-Owned files / PRs: \hrulefill\\
-Co-owned files / PRs: \hrulefill\\
-Reviewed PRs: \hrulefill\quad Commit share: \rule{1.4cm}{0.3pt}\%
+\textbf{Owned responsibility:} Cache, validation, offline and UI: \texttt{cache.py}, \texttt{validation.py}, \texttt{offline.py}, \texttt{web\_ui.py}; acceptance/document consistency.\\
+\textbf{Co-owned:} Shared development with Yaqub and Səbuhi, per the coordinator's account.\\
+\textbf{PRs / tests:} No separately authored PR is evidenced; corresponding test areas are cache, validation and UI. Individual execution is not separately evidenced.\\
+\textbf{Reviewed:} Shared working-session review reported; no formal GitHub review attributed. \textbf{Commit share:} 0/9 = 0.00\%.
 
-\textbf{AI tool disclosure.} OpenAI Codex substantially drafted the application modules, tests, deployment configuration, report and presentation, and ran the recorded local checks. The supplied AI package was retained unchanged. Team review, edits and learning must be documented truthfully; this document does not assert that these actions have already occurred.
+\textbf{Evidence and disclosure.} Snapshot: \texttt{main@fdfcb60}, 9 commits including 2 merges, total 100\%. Counts are not effort percentages; refresh after later merges. Codex substantially drafted software, tests and documents and ran local checks. The course supplied \texttt{ai/}. The central-commit explanation is the team's statement; any grading exception is the instructor's decision.
 
-\textbf{Attestation on signing.} We affirm that the entries above accurately describe our contributions; commit shares represent real work rather than artificially split commits; we can defend the repository during the oral examination; and substantial AI assistance is disclosed. This attestation takes effect only when members complete and sign it.
+\textbf{Attestation.} We confirm the accuracy of our entries and the AI disclosure and can defend the work. Enter the actual signing date with each signature; no signature or signing date is generated on our behalf.
 
-\begin{tabularx}{\textwidth}{lXX}\toprule Member & Signature & Date\\\midrule
-Yaqub Xəlilli & \rule{4cm}{0.3pt} & \rule{2cm}{0.3pt}\\[0.45cm]
-Səbuhi Xamiyev & \rule{4cm}{0.3pt} & \rule{2cm}{0.3pt}\\[0.45cm]
-Aqil Əsgərov & \rule{4cm}{0.3pt} & \rule{2cm}{0.3pt}\\\bottomrule
+\begin{tabularx}{\textwidth}{lX}\toprule Member & Signature and actual date\\\midrule
+Yaqub Xəlilli & \hrulefill\\[0.25cm]
+Səbuhi Xamiyev & \hrulefill\\[0.25cm]
+Aqil Əsgərov & \hrulefill\\\bottomrule
 \end{tabularx}
 \end{document}
