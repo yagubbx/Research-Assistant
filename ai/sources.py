@@ -339,7 +339,7 @@ class DuckDuckGoProvider(WebSearchProvider):
     ) -> list[Source]:
         # `client` is unused — this provider doesn't speak HTTP directly.
         import asyncio
-        from ddgs import DDGS
+        from duckduckgo_search import DDGS  # type: ignore
 
         def _run() -> list[Source]:
             results: list[Source] = []

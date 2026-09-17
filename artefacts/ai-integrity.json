@@ -1,86 +1,45 @@
-[
-  {
-    "file": "ai/schemas.py",
-    "supplied_sha256": "576265fc795b785fd5794271ed0f6a3d92db045811f50684306906785d1b3b89",
-    "delivered_sha256": "576265fc795b785fd5794271ed0f6a3d92db045811f50684306906785d1b3b89",
-    "identical": true
-  },
-  {
-    "file": "ai/sources.py",
-    "supplied_sha256": "efcc4c1973b4dbfa44caffdd9d60a13ae5541995c646245eaeb127208c73324f",
-    "delivered_sha256": "efcc4c1973b4dbfa44caffdd9d60a13ae5541995c646245eaeb127208c73324f",
-    "identical": true
-  },
-  {
-    "file": "ai/synthesizer.py",
-    "supplied_sha256": "6610cae0851ec0f8c95c0c3ac532965bae7062934094cd08c8b6a1ecf2160fd4",
-    "delivered_sha256": "6610cae0851ec0f8c95c0c3ac532965bae7062934094cd08c8b6a1ecf2160fd4",
-    "identical": true
-  },
-  {
-    "file": "ai/__init__.py",
-    "supplied_sha256": "f1a647f0805cfdf5ac4c2b999c15be6a59fe541e293ffe6fce739ed5872feb6a",
-    "delivered_sha256": "f1a647f0805cfdf5ac4c2b999c15be6a59fe541e293ffe6fce739ed5872feb6a",
-    "identical": true
-  },
-  {
-    "file": "ai/providers/anthropic.py",
-    "supplied_sha256": "1b8af0110421059176e0e6a1e4e83c836c260ff487b9d846ea477c73364218df",
-    "delivered_sha256": "1b8af0110421059176e0e6a1e4e83c836c260ff487b9d846ea477c73364218df",
-    "identical": true
-  },
-  {
-    "file": "ai/providers/base.py",
-    "supplied_sha256": "c89d3dec5f6e087de8cb5f4b32b116c86b9187f4d62d384ad8dc8fd2060ff989",
-    "delivered_sha256": "c89d3dec5f6e087de8cb5f4b32b116c86b9187f4d62d384ad8dc8fd2060ff989",
-    "identical": true
-  },
-  {
-    "file": "ai/providers/factory.py",
-    "supplied_sha256": "cc3a25aefb38932885cf9ac14d3351d77669511632c293d9725a3a405ac9509c",
-    "delivered_sha256": "cc3a25aefb38932885cf9ac14d3351d77669511632c293d9725a3a405ac9509c",
-    "identical": true
-  },
-  {
-    "file": "ai/providers/google.py",
-    "supplied_sha256": "e248734038eedb8eac48d32f69d1691b69e53d8a203243db213a56e13739a561",
-    "delivered_sha256": "e248734038eedb8eac48d32f69d1691b69e53d8a203243db213a56e13739a561",
-    "identical": true
-  },
-  {
-    "file": "ai/providers/openai.py",
-    "supplied_sha256": "7a9f30b83f2b9bce459e84ba382dfc6ed61cffb3763ea8cc56872b32a7dfa2ce",
-    "delivered_sha256": "7a9f30b83f2b9bce459e84ba382dfc6ed61cffb3763ea8cc56872b32a7dfa2ce",
-    "identical": true
-  },
-  {
-    "file": "ai/providers/__init__.py",
-    "supplied_sha256": "60d60b0d921d9cd1c07c1f9819a66ffcc089e71f0511d2ba3122e160f0d12a74",
-    "delivered_sha256": "60d60b0d921d9cd1c07c1f9819a66ffcc089e71f0511d2ba3122e160f0d12a74",
-    "identical": true
-  },
-  {
-    "file": "tests/test_ai_smoke.py",
-    "supplied_sha256": "0aff878e3b3676c4d267604071805b7cd0d8db93c924deada1969bcd6c3c5fb8",
-    "delivered_sha256": "0aff878e3b3676c4d267604071805b7cd0d8db93c924deada1969bcd6c3c5fb8",
-    "identical": true
-  },
-  {
-    "file": "tests/conftest.py",
-    "supplied_sha256": "b2a5293a80722d9ab2d8f991c2ab976667c1742dd0474f21eac20c1ffeb169a4",
-    "delivered_sha256": "b2a5293a80722d9ab2d8f991c2ab976667c1742dd0474f21eac20c1ffeb169a4",
-    "identical": true
-  },
-  {
-    "file": "data/research_questions.json",
-    "supplied_sha256": "809a65dca35c970279f5f8cbcfc5093928dfdca28dad985d3e25fb0d4ce60dee",
-    "delivered_sha256": "809a65dca35c970279f5f8cbcfc5093928dfdca28dad985d3e25fb0d4ce60dee",
-    "identical": true
-  },
-  {
-    "file": "demo_ai.py",
-    "supplied_sha256": "3ff6544066332bf3ebe19a98bcde05c77d28f81820066bedaac6c791af3fa7ae",
-    "delivered_sha256": "3ff6544066332bf3ebe19a98bcde05c77d28f81820066bedaac6c791af3fa7ae",
-    "identical": true
-  }
-]
+{
+  "comparison": "UTF-8 text with normalized line endings",
+  "files": [
+    {
+      "file": "ai/schemas.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/sources.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/synthesizer.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/__init__.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/providers/anthropic.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/providers/base.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/providers/factory.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/providers/google.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/providers/openai.py",
+      "matches_original_text": true
+    },
+    {
+      "file": "ai/providers/__init__.py",
+      "matches_original_text": true
+    }
+  ]
+}

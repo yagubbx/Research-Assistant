@@ -19,6 +19,7 @@ from researcher.config import Settings
 from researcher.logging_config import debug_payload, info_payload
 from researcher.offline import OfflineWeb
 from researcher.resilience import RateLimiter, retry
+from researcher.search import topic_query
 from researcher.validation import validate_answer
 from researcher.worker import SourceBatch, SynthesisRequest
 
@@ -35,6 +36,8 @@ class AIService:
 
     async def fetch(self, name: str, query: str, client: httpx.AsyncClient) -> list[Source]:
         """Retry an AI fetch while the orchestrator enforces its total deadline."""
+        if not self.offline:
+            query = topic_query(query)
         info_payload(log, "fetch_input", f"{name}: {query}")
 
         @retry(self.settings)
@@ -107,6 +110,9 @@ class AIService:
             except (ValueError, UnicodeError):
                 raise ProviderError("Provider worker failed") from None
             status = error.get("status")
+            log.warning("provider_worker_failed operation=%s status=%s", request.operation, status)
+            if status == 429:
+                raise ProviderError("Provider quota or rate limit reached; check the provider quota.")
             if isinstance(status, int) and 400 <= status < 500 and status != 429:
                 raise ValueError("Provider rejected the request; check model and credentials.")
             raise ProviderError("Provider unavailable")
@@ -131,6 +137,7 @@ class AIService:
             try:
                 return validate_answer(result, sources, question)
             except ValueError as error:
+                log.warning("citation_validation_failed reason=%s", str(error))
                 # Regenerate within the existing attempt and deadline budgets.
                 # Never attach invented citations to an unsupported sentence.
                 raise ProviderError("Model returned invalid citations; regeneration required") from error

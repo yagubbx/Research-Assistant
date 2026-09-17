@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-17",
+  "url": "https://vertex-research-assistant.onrender.com/",
+  "commit": "0d6208beb83752f79dc342c5c88d6fd6ca205154",
+  "render_model": "gemini-3.1-flash-lite",
+  "live_check": {
+    "question": "What is photosynthesis and what are its main stages?",
+    "elapsed_seconds": 23.21,
+    "available_sources": 3,
+    "references": 3,
+    "result": "passed; source limitations disclosed in answer"
+  },
+  "limitations": [
+    "A successful sample is not a guarantee of provider availability.",
+    "Deployment remains on deploy/render; teammate review and signed contributions must be completed honestly.",
+    "Existing PDFs and ZIP predate these deployment changes."
+  ]
+}

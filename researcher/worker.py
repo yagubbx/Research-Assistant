@@ -16,6 +16,7 @@ from ai.schemas import Source
 from researcher.config import Settings
 from researcher.offline import OfflineLLM
 from researcher.resilience import RetryTransport
+from researcher.search import BoundedWebSearch
 
 
 class ResearchLLM(LLMProvider):
@@ -25,7 +26,10 @@ class ResearchLLM(LLMProvider):
         self.provider = get_llm()
 
     def complete(self, prompt: str, *, json_schema: dict | None = None, max_tokens: int = 1024) -> str:
-        return self.provider.complete(prompt, json_schema=json_schema, max_tokens=max(4096, max_tokens))
+        return self.provider.complete(
+            prompt + "\nEvery sentence must include a valid source citation. Omit unsupported claims.",
+            json_schema=json_schema, max_tokens=max(4096, max_tokens),
+        )
 
 
 class SynthesisRequest(BaseModel):
@@ -49,7 +53,10 @@ async def fetch_web(request: SynthesisRequest) -> list[Source]:
     """Apply the same HTTP retry policy inside the isolated web process."""
     settings = Settings.from_env()
     async with httpx.AsyncClient(transport=RetryTransport(settings), timeout=settings.http_timeout) as client:
-        return await ai.fetch_web(request.question, max_results=request.max_results, client=client)
+        return await ai.fetch_web(
+            request.question, max_results=request.max_results, client=client,
+            provider=BoundedWebSearch() if settings.web_search_provider == "duckduckgo" else None,
+        )
 
 
 def main() -> int:
@@ -71,7 +78,7 @@ def main() -> int:
         cause: BaseException | None = error
         status = None
         while cause:
-            status = getattr(cause, "status_code", status)
+            status = getattr(cause, "status_code", None) or getattr(cause, "code", None) or status
             cause = cause.__cause__
         sys.stdout.write(json.dumps({"error": type(error).__name__, "status": status}))
         return 1
