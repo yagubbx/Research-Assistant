@@ -141,15 +141,14 @@ Synthetic HTTP delays: 150 ms per source; semaphore = 3.\\
 \textbf{Bottleneck:} the slowest source after overlap; synthesis may dominate the full live run.
 \end{frame}
 
-\begin{frame}{Failure handling}
-\textbf{Injected incident: arXiv raises a provider error}\vspace{0.4cm}
+\begin{frame}{Integration problems and solutions}
 \begin{itemize}\setlength\itemsep{0.35cm}
-\item Wikipedia and web evidence still reaches synthesis.
-\item References include an explicit arXiv-unavailable note.
-\item Transient HTTP failures retry; 401 does not.
-\item All sources unavailable: clear error, no invented answer.
-\end{itemize}\vspace{0.3cm}
-\small Defaults: 3 attempts; 0.5 / 1.0 s backoff; 20 s source deadline; 60 s synthesis deadline.
+\item \textbf{Uncited sentences:} validate and regenerate within the existing retry budget; never invent citations.
+\item \textbf{Empty or slow search:} simplify topic queries; bound web search in a killable worker.
+\item \textbf{Gemini errors:} inspect safe status codes; align model defaults with the working deployment.
+\item \textbf{Source failure:} keep usable evidence and show a missing-source note; stop if all sources fail.
+\end{itemize}
+\small Evidence: regression tests, Docker acceptance log and Render live sample.
 \end{frame}
 
 \begin{frame}[fragile]{Scripted demonstration}
@@ -162,17 +161,17 @@ docker run --rm --network none vertex-research
 \vspace{0.4cm}
 Five original questions produce answers with numbered references.\\[0.25cm]
 Offline evidence is visibly labeled \textbf{SIMULATED}.\\[0.25cm]
-\small Live demo requires configured API keys. Docker build, offline run and UI health checks passed.
+\small Render live sample: 23.21 s, 3 sources, 3 references. Offline mode needs no key.
 \end{frame}
 
 \begin{frame}{Testing evidence}
 \begin{columns}[T,onlytextwidth]
-\column{.46\textwidth}{\Huge\color{accent}114} passing tests\\[0.45cm]
-{\Huge\color{accent}93.91\%} application coverage\\[0.35cm]
+\column{.46\textwidth}{\Huge\color{accent}121} passing tests\\[0.45cm]
+{\Huge\color{accent}93.85\%} application coverage\\[0.35cm]
 16 unchanged course smoke tests included.
 \column{.48\textwidth}\textbf{High-value checks}\begin{itemize}\item Source failure and timeout\item Semaphore bound and overlap\item 429 recovery; no 401 retry\item Cache expiry and corruption\item Invalid and missing citations\end{itemize}
 \end{columns}\vspace{0.5cm}
-\small Ruff passes; mypy reports no issues in 17 files. Tests use mocks and deny live sockets.
+\small Ruff passes; mypy reports no issues in 18 files. Tests use mocks and deny live sockets.
 \end{frame}
 
 \begin{frame}{Tested extensions in v1.1.0}
@@ -182,7 +181,7 @@ Offline evidence is visibly labeled \textbf{SIMULATED}.\\[0.25cm]
 \item \textbf{Streamlit:} same core pipeline, sample/live modes, references and downloads; AppTest and browser checks.
 \item \textbf{CI:} lint, types, tests, coverage and container UI health workflow.
 \end{itemize}\vspace{0.2cm}
-\small Docker acceptance passed. Live Gemini and hosted CI remain separate checks. Bonus credit is assessed by the instructor.
+\small Docker acceptance passed. Live Gemini passed; PR 1 checks passed before merge. Bonus credit is assessed by the instructor.
 \end{frame}
 
 \begin{frame}{Team and AI disclosure}

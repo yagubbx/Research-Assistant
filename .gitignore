@@ -21,4 +21,5 @@ htmlcov/
 *.nav
 *.snm
 *.vrb
-*.synctex.gz/tatus --short
+*.synctex.gz
+tatus --short

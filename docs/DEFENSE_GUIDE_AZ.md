@@ -61,3 +61,10 @@ Bu bölgü kod müəllifliyini göstərmir; hər kəs tam sorğu axınını öyr
 **Nasaz JSON düzəlişi:** verilmiş parserin xarici cavabdan yaranan TypeError/AttributeError xətası AIService sərhədində mənbə xətasına çevrilir. Daxili proqramlaşdırma səhvləri ümumi except ilə gizlədilmir.
 
 Hər üzv bir core testi seçsin, nəticəni əvvəlcədən izah edib işlətsin. Source timeout-u azaldıb davranışı izah edin. Cache expiry testində real sleep əvəzinə saatın niyə dəyişdirildiyini müzakirə edin: sürət və təkrarlana bilən nəticə.
+
+## Son müdafiə qeydləri
+
+121 test, 93.85% line coverage. Coverage düzgün elmi cavab faizi deyil.
+Canlı Render nümunəsi: 23.21 saniyə, 3 mənbə və 3 istinad; bütün suallar üçün zəmanət yoxdur.
+Problemləri docs/PROBLEMS_AND_SOLUTIONS.md üzrə simptom, həll və sübut ardıcıllığında izah edin.
+Slayd 6-da real inteqrasiya problemləri var. Hər üç üzv danışmalı, başqasının modulunu da ümumi səviyyədə izah etməlidir.

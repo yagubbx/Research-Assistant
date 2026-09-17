@@ -2,7 +2,7 @@
 \documentclass[11pt,a4paper]{article}
 \newcommand{\teamname}{VerteX}
 \newcommand{\topicchoice}{Async Research Assistant}
-\newcommand{\reportdate}{16 September 2026}
+\newcommand{\reportdate}{17 September 2026}
 \newcommand{\repolink}{github.com/yagubbx/Research-Assistant}
 \newcommand{\memberone}{Yaqub Xəlilli}
 \newcommand{\membertwo}{Səbuhi Xamiyev}
@@ -137,15 +137,15 @@ Yaqub Xəlilli (\texttt{@yagubbx})\\
 Səbuhi Xamiyev (\texttt{@KhamiyevSebuhi})\\
 Aqil Əsgərov (\texttt{@agilasgarli-sys})\\[0.5cm]
 \href{https://github.com/yagubbx/Research-Assistant}{github.com/yagubbx/Research-Assistant}\\[0.25cm]
-Engineering verification: 16 September 2026\\
+Engineering verification: 17 September 2026\\
 Release tag target: \texttt{v1.0-final}
 \end{center}
 \section*{Executive Summary}
 This project implements the software-engineering layer for Topic 4 only. A question is validated, Wikipedia, arXiv and web search are queried concurrently, and the provided AI synthesizer produces an answer with numbered references. The supplied AI package and its 16 contract tests remain unchanged. The application adds typed configuration, independent deadlines, request retries, per-host pacing, a persistent TTL cache, structured diagnostics and a reproducible command-line interface. The final revision also adds local configuration diagnostics and separates optional provider SDKs from offline requirements.
 
-The verification run passed 114 offline tests with 93.91\% application coverage. A five-question retrieval benchmark measured a median 2.412 seconds sequentially and 0.802 seconds concurrently, a 3.01-fold speedup. These are explicitly simulated HTTP timings with caches bypassed; they do not establish live provider latency or research quality.
+The verification run passed 121 offline tests with 93.85\% application coverage. A five-question retrieval benchmark measured a median 2.412 seconds sequentially and 0.802 seconds concurrently, a 3.01-fold speedup. These are explicitly simulated HTTP timings with caches bypassed; they do not establish live provider latency or research quality.
 
-The package includes source, tests, Docker configuration, this report, the defense slides and run artefacts. Docker build, offline CLI and container UI health checks passed; live LLM execution remains unverified without a user key. The repository address was supplied by the team; publication, review history, final tag and signed contributions require genuine team actions. Substantial AI assistance is disclosed in Section 9. This report records engineering evidence rather than certifying a grade or submission status.
+The package includes source, tests, Docker configuration, this report, the defense slides and run artefacts. Docker build, offline CLI and container UI health checks passed; live Gemini research passed on Render with three sources and three references. PR 1 showed two successful checks and was merged into main (b56bd18). The operator reports Render now uses main; signatures and the final tag remain team actions. Substantial AI assistance is disclosed in Section 9. This report records engineering evidence rather than certifying a grade or submission status.
 
 \clearpage
 \section{Project Overview}
@@ -153,7 +153,7 @@ The package includes source, tests, Docker configuration, this report, the defen
 The user needs a concise answer whose sources can be inspected. The minimum contract is \texttt{python -m researcher ask "question"}. Optional flags select \texttt{wiki,arxiv,web}, bypass all cache reads and writes, emit JSON, or save the result. The \texttt{demo} command processes all five original questions. An explicit offline switch runs deterministic educational fixtures without credentials. Arbitrary questions are rejected in that mode, so canned evidence cannot be mistaken for general research.
 
 \subsection{Provider choice and the AI module contract}
-Anthropic and Tavily are the configured defaults, matching the supplied module. OpenAI, Gemini and alternative web providers remain available through environment configuration. This is a compatibility choice, not an empirical quality or cost comparison. Live credentials were unavailable during verification. Application business logic never constructs provider SDK clients. All source fetching uses the three public \texttt{ai.fetch\_*} functions, and synthesis calls \texttt{ai.synthesize} in an isolated process.
+The delivered environment example selects Gemini gemini-3.1-flash-lite and keyless DuckDuckGo search. Alternative providers remain configurable. A live Render request completed in 23.21 seconds with three available sources and three references; its answer disclosed evidence limitations. This is one acceptance sample, not a provider quality or uptime guarantee. Application business logic never constructs provider SDK clients. All source fetching uses the three public \texttt{ai.fetch\_*} functions, and synthesis calls \texttt{ai.synthesize} in an isolated process.
 
 \section{Architecture}
 \subsection{Module map}
@@ -213,7 +213,7 @@ Errors cross the CLI boundary as concise messages and exit code 2. Cancellation 
 \subsection{Failure-mode analysis: unavailable arXiv}
 An injected \texttt{ProviderError} in arXiv verified the degradation path. Wikipedia and web evidence remained available; the synthesizer received only usable evidence. The final references included an explicit arXiv-unavailable note. The test also inserted a secret-like exception message and verified that it did not appear in the session JSON. A separate timeout test delayed arXiv beyond 50 ms and observed a timeout outcome while Wikipedia completed.
 
-When every source fails or returns empty evidence, the application refuses synthesis. This avoids producing an answer with invented support. Invalid model output is also rejected: an empty answer, no valid citation, or a factual sentence without a citation produces a clear error. Structural validation cannot prove that the cited passage supports a claim; that remains a stated quality limitation.
+When every source fails or returns empty evidence, the application refuses synthesis. This avoids producing an answer with invented support. Invalid model output is regenerated within the retry/deadline budget, then rejected if still invalid: an empty answer, no valid citation, or a factual sentence without a citation produces a clear error. Structural validation cannot prove that the cited passage supports a claim; that remains a stated quality limitation.
 
 \subsection{Input validation}
 Questions must contain letters or numbers and cannot exceed the configured 2,000-character limit. Unknown source names are rejected before network work. ANSI escape sequences, HTML tags, invisible controls and bidirectional control characters are removed from displayed text. Only usable HTTP(S) source URLs and nonempty excerpts survive evidence validation. The citation validator removes invalid numeric markers from the answer itself and reconstructs references from the actual selected evidence, rather than trusting model-provided reference objects.
@@ -243,12 +243,12 @@ The cache is not a research history store: answers are recomputed and the CLI sa
 \clearpage
 \section{Testing}
 \subsection{Strategy \& coverage}
-The measured suite contains 114 passing tests, including all 16 unchanged course smoke tests. Coverage of the application package is 93.91\%, above the required 60\% gate. The course provider implementation is excluded from the application coverage denominator and separately exercised by its smoke tests. Raw coverage data is supplied in \texttt{artefacts/coverage.json}. Ruff passed after formatting; mypy reported no issues in 17 application files.
+The measured suite contains 121 passing tests, including all 16 unchanged course smoke tests. Coverage of the application package is 93.85\%, above the required 60\% gate. The course provider implementation is excluded from the application coverage denominator and separately exercised by its smoke tests. Raw coverage data is supplied in \texttt{artefacts/coverage.json}. Ruff passed after formatting; mypy reported no issues in 18 application files.
 
 The suite uses fake AI responses, HTTPX mock transport and \texttt{respx}. A root fixture rejects real socket connections in the test process. Offline subprocess synthesis uses only the deterministic fixture LLM. CI additionally runs the container demo with networking disabled. The suite does not require API keys or a paid account.
 
 \subsection{Notable tests}
-\noindent\begin{tabularx}{\linewidth}{@{}p{2.9cm}>{\raggedright\arraybackslash}X@{}}\toprule
+\noindent\begin{tabularx}{\linewidth}{@{}p{3.3cm}>{\raggedright\arraybackslash}X@{}}\toprule
 Area & Evidence and invariant\\\midrule
 Orchestration & Happy path shares one client; arXiv failure and timeout preserve the answer; all-source failure prevents synthesis.\\
 Concurrency & Instrumented tasks reach two simultaneous operations with a bound of two; delayed parallel retrieval beats the sequential baseline.\\
@@ -273,12 +273,15 @@ docker run --rm --env-file .env vertex-research \
   ask "What is photosynthesis?" --no-cache
 \end{lstlisting}
 
-The host Docker build, five-question offline run, doctor and Streamlit HTTP health checks passed; the saved acceptance log identifies the image. Its size is 338,510,564 bytes, so the 250 MB size bonus is not claimed. The included GitHub Actions workflow installs dependencies, lints, type-checks, runs tests with a coverage gate, builds the image and executes the offline container. These workflow steps have been authored but are not evidence of a completed remote CI run. Repository maintainers must require the quality job in branch protection.
+The host Docker build, five-question offline run, doctor and Streamlit HTTP health checks passed; the saved acceptance log identifies the image. Its size is 338,510,564 bytes, so the 250 MB size bonus is not claimed. The included GitHub Actions workflow installs dependencies, lints, type-checks, runs tests with a coverage gate, builds the image and executes the offline container. The team supplied PR 1 evidence showing both checks successful before merge. Repository maintainers must require the quality job in branch protection.
 
 \subsection{Configuration}
 \texttt{Settings.from\_env} is the application configuration boundary. It loads a local \texttt{.env} without overriding shell values, validates numeric bounds and exposes typed fields. Provider names and models retain the course module's environment interface. The doctor command checks local credentials and SDK availability without network calls. Optional live SDKs are installed from the provider requirements file. The example file lists application limits, all provider key aliases used by the supplied package and optional inherited provider variables.
 
 For a live run, configure one supported LLM key and a web-search key, or select a keyless web provider. Never commit the real \texttt{.env}. The command checks required credentials before retrieval. The README includes Windows and POSIX setup, examples, exit codes, Docker commands and commands to reproduce the benchmark.
+
+\subsection{Problems resolved during integration}
+Uncited model sentences triggered bounded regeneration rather than fabricated citations. Long question wording was reduced to a topic query for retrieval. Web search moved behind a bounded adapter in a killable worker. Gemini model errors were diagnosed using safe status codes, then defaults were aligned with the working deployment. Windows Docker verification initially failed because of a script command problem; the corrected script returned PASSED. Detailed evidence and remaining limits are recorded in \texttt{docs/PROBLEMS\_AND\_SOLUTIONS.md}.
 
 \subsection{Submission evidence}
 The package is prepared for the team-specified GitHub repository. Genuine reviews, member commit history, a pushed final tag and Moodle delivery cannot be substituted by generated files. The contribution statement records the known team identities and leaves attestations unsigned. The team must fill its actual ownership and review history before signing; the package does not manufacture commit percentages or signatures.
@@ -299,16 +302,16 @@ The forced-exhaustion test reserves 7 of 10 tokens, then requests 4: a virtual c
 \subsection*{UI, setup and regression evidence}
 The one-file Streamlit view calls the same \texttt{Researcher.ask} as the CLI. Sample/live modes, source selection, cache bypass, cited answers, source expanders and JSON/text downloads are exposed. Automated AppTest runs exercise the full sample workflow, missing live credentials and disabled submission with no sources. A browser run additionally confirmed the rendered answer and three references. The private terminal setup stores a Gemini key in local \texttt{.env}, never in browser widgets or source files.
 
-Malformed upstream JSON now becomes a source failure rather than escaping as \texttt{TypeError}. Tests cover both an invalid title-list shape and an invalid summary body, while genuine internal programming errors remain visible. CI also defines a container UI health check. Docker build, offline CLI and container UI health passed separately. Hosted CI and protected-branch settings remain unverified; no bonus points are asserted as awarded.
+Malformed upstream JSON now becomes a source failure rather than escaping as \texttt{TypeError}. Tests cover both an invalid title-list shape and an invalid summary body, while genuine internal programming errors remain visible. CI also defines a container UI health check. Docker build, offline CLI and container UI health passed separately. PR 1 CI checks passed; protected-branch settings still require confirmation; no bonus points are asserted as awarded.
 
 \clearpage
 \section{Limitations \& Future Work}
 \begin{enumerate}[leftmargin=*]
-\item \textbf{Live evidence not verified.} No LLM/search credentials were available. The five saved answers and benchmark are deliberately offline. Live provider smoke runs remain a release acceptance step.
+\item \textbf{Limited live sample.} One Render photosynthesis request passed with Gemini; this does not validate all questions. Saved five-question demo answers are deliberately synthetic. Provider availability and quotas can change.
 \item \textbf{Citation structure is not entailment.} An existing source index can still support a misleading claim. The application checks numbering and sentence coverage, not the truth of a statement. A later evaluation should score answers against source passages.
 \item \textbf{Independent quotas.} Rate pacing is local to one orchestrator instance; parallel processes need a shared quota coordinator. The DuckDuckGo adapter owns its own HTTP stack, so individual internal requests are outside the shared transport's visibility.
 \item \textbf{Search coverage.} Short excerpts may omit qualifications, contain low-quality material or fail to answer a current question. The app cannot establish exhaustive literature coverage or current fusion research status from simulated fixtures.
-\item \textbf{Operational verification.} Docker build/run and UI health passed. Hosted CI status, protected branches, member reviews and submission were not observed. The 338,510,564-byte image exceeds the optional 250 MB target.
+\item \textbf{Operational verification.} Docker build/run and UI health passed. PR checks and merge were shown by the team; branch protection, formal review content and final submission are not independently confirmed. The 338,510,564-byte image exceeds the optional 250 MB target.
 \item \textbf{Persistent storage growth.} TTL entries expire logically; automatic disk eviction and multi-process cache stampede prevention are future operational improvements.
 \end{enumerate}
 

@@ -26,12 +26,12 @@ New features: malformed upstream JSON recovery, ordered web-provider failover, e
 
 ## Verified status
 
-- **114 tests pass**, including all **16 unchanged course smoke tests**.
-- **93.91% application coverage**, with a 60% CI threshold.
-- Ruff passes; mypy reports no issues in 17 application files.
-- The original AI code, smoke tests, sample questions and provided demo match the supplied SHA-256 hashes.
+- **121 tests pass**, including all **16 unchanged course smoke tests**.
+- **93.85% application coverage**, with a 60% CI threshold.
+- Ruff passes; mypy reports no issues in 18 application files.
+- The supplied AI code and starter tests/data/demo match after normalizing line endings; see artefacts/ai-integrity.json.
 - All five sample questions run end-to-end in explicitly labeled offline mode.
-- Docker build, five-question offline container demo, doctor and container UI HTTP health **passed**; see `artefacts/docker-verification.txt`. Live LLM execution, hosted CI and repository publication remain unverified because no LLM key or hosted workflow result was supplied.
+- Docker build, five-question offline container demo, doctor and container UI HTTP health **passed**; see `artefacts/docker-verification.txt`. Live Gemini research passed on Render (17 September); the supplied PR #1 status showed two successful checks. PR #1 was merged into main at b56bd18. The operator reports Render now deploys main.
 
 ## Quick start — Windows
 
@@ -57,7 +57,7 @@ The following examples assume the virtual environment is activated, or that `pyt
 
 ## Live research
 
-Copy `.env.example` to `.env`. Choose a supported provider/model and fill its key. `LLM_PROVIDER` supports `anthropic`, `openai`, or `gemini`; keys are `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_API_KEY` / `GEMINI_API_KEY`. The supplied providers also support `LLM_API_KEY` as a fallback. Provider-specific model IDs are account-dependent; the example retains the course's Anthropic model.
+Copy `.env.example` to `.env`. Choose a supported provider/model and fill its key. `LLM_PROVIDER` supports `anthropic`, `openai`, or `gemini`; keys are `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_API_KEY` / `GEMINI_API_KEY`. The supplied providers also support `LLM_API_KEY` as a fallback. Provider-specific model IDs are account-dependent; the example selects Gemini gemini-3.1-flash-lite, matching the verified Render configuration.
 
 Web search supports `tavily`, `serper`, or `duckduckgo`. The first two need `TAVILY_API_KEY` or `SERPER_API_KEY`. DuckDuckGo is keyless, with its own search-library HTTP stack. For full per-HTTP transport visibility, use Tavily or Serper. The keyless adapter runs in a killable worker so its blocking thread cannot defeat the source deadline.
 
@@ -142,7 +142,7 @@ python -m ruff check researcher tests/test_se*.py
 python -m mypy researcher
 ```
 
-Results recorded on Python 3.12.14 / Windows: **114 passed; 93.91% coverage**. The coverage denominator is the `researcher` application, not the supplied provider SDK wrappers. Tests cover real offline parsers, cache contracts, 429/503 retries, no 401 retry, Wikipedia summary retries, deadlines, concurrency, worker failures, missing citations and CLI behavior. The root fixture blocks external sockets but allows asyncio's loopback wakeup sockets. No API key is needed.
+Results refreshed on 17 September 2026, Python 3.12.14 / Windows: **121 passed; 93.85% coverage**. The coverage denominator is the `researcher` application, not the supplied provider SDK wrappers. Tests cover real offline parsers, cache contracts, 429/503 retries, no 401 retry, Wikipedia summary retries, deadlines, concurrency, worker failures, missing citations and CLI behavior. The root fixture blocks external sockets but allows asyncio's loopback wakeup sockets. No API key is needed.
 
 GitHub Actions performs lint, type checking, coverage, both demos, Docker build and network-disabled Docker execution. Maintainers must set the workflow as a required branch-protection check; a workflow file alone does not configure that policy.
 
@@ -174,11 +174,11 @@ docker run --rm --env-file .env vertex-research ask "What is photosynthesis?"
 docker run --rm -v research-cache:/app/.cache --env-file .env vertex-research demo
 ```
 
-The image runs as a non-root user. Its default command is the complete offline demo. The host build, offline demo, doctor and container UI health checks passed; the saved log is `artefacts/docker-verification.txt`. The image is 338,510,564 bytes. Hosted CI remains unverified. Direct dependencies are pinned; the dependency set is not a complete transitive lock.
+The image runs as a non-root user. Its default command is the complete offline demo. The host build, offline demo, doctor and container UI health checks passed; the saved log is `artefacts/docker-verification.txt`. The image is 338,510,564 bytes. PR #1 reported two successful checks before merge. Direct dependencies are pinned; the dependency set is not a complete transitive lock.
 
 ## Report and defense
 
-- `report/report.pdf`: nine-page report following the supplied template's structure and styling.
+- `report/report.pdf`: ten-page report following the supplied template's structure and styling.
 - `presentation/slides.pdf`: eleven-frame 16:9 Beamer defense deck, following the supplied template.
 - `report/contribution_statement.pdf`: **unsigned** contribution form with real member identities; actual files/PRs/commit shares must be entered before signing.
 - Editable `.tex` sources and SIL-licensed Noto fonts are included.
@@ -219,4 +219,15 @@ The opt-in `python scripts/live_benchmark.py` uses five topical queries against 
 docker run --rm -p 127.0.0.1:8501:8501 --entrypoint python vertex-research -m streamlit run researcher/web_ui.py --global.developmentMode false --server.address 0.0.0.0 --browser.gatherUsageStats false
 ```
 
-Add `--env-file .env` before the image name for live mode. The image now contains UI dependencies and exposes port 8501. Its build/run and container UI health passed. The image is 338,510,564 bytes (about 322.8 MiB); no <=250 MB bonus is claimed. The local browser workflow and automated UI tests also passed. Hosted CI/main protection and live Gemini remain separate acceptance steps.
+Add `--env-file .env` before the image name for live mode. The image now contains UI dependencies and exposes port 8501. Its build/run and container UI health passed. The image is 338,510,564 bytes (about 322.8 MiB); no <=250 MB bonus is claimed. The local browser workflow and automated UI tests also passed. Live Gemini and PR checks passed; main branch protection still requires maintainer confirmation.
+
+## Final handover
+
+Live site: https://vertex-research-assistant.onrender.com/
+
+- [Problems and solutions](docs/PROBLEMS_AND_SOLUTIONS.md)
+- [Current verification](artefacts/final-verification.json)
+- [Remaining team actions](HANDOVER_STATUS.md)
+- [Submission file tree](PROJECT_TREE.md)
+
+Older benchmark and Docker artefacts retain their original measurement context; they are not new measurements of the hosted service.
