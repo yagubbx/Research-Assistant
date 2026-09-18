@@ -94,14 +94,32 @@ Yaqub Xəlilli \quad Səbuhi Xamiyev \quad Aqil Əsgərov\\[0.6cm]
 {\small github.com/yagubbx/Research-Assistant}
 \end{frame}}
 
-\begin{frame}{The research contract}
-\begin{block}{User outcome}A question becomes a concise answer with inspectable numeric references and visible missing-source notes.\end{block}
-\vspace{0.4cm}
+\begin{frame}{Research Assistant: purpose and workflow}
+\textbf{One question, evidence from several sources.}\\[0.12cm]
+A concise answer with numbered references the user can inspect.
+\vspace{0.38cm}
 \begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}\textbf{Input}\begin{itemize}\item Question: 1--2,000 characters\item Selected sources: wiki, arxiv, web\item Optional cache bypass\end{itemize}
-\column{.48\textwidth}\textbf{Output}\begin{itemize}\item Cited answer and source URLs\item Per-source status and timing\item Plain text or structured JSON\end{itemize}
-\end{columns}\vspace{0.5cm}
-\texttt{python -m researcher ask "your question"}
+\column{.29\textwidth}
+{\color{accent}\textbf{01\quad Ask}}\\[0.18cm]
+Enter a research question.\\[0.18cm]
+Choose Wikipedia, arXiv or web sources.\\[0.18cm]
+Use the CLI or Streamlit UI.
+\column{.32\textwidth}
+{\color{accent}\textbf{02\quad Research}}\\[0.18cm]
+Fetch selected sources concurrently.\\[0.18cm]
+Reuse valid cached evidence.\\[0.18cm]
+Generate an answer with an LLM.
+\column{.31\textwidth}
+{\color{accent}\textbf{03\quad Inspect}}\\[0.18cm]
+Read the answer and open its references.\\[0.18cm]
+See source status and timing.\\[0.18cm]
+Export text or JSON.
+\end{columns}
+\vspace{0.38cm}
+{\small\color{accent}\textbf{When a source fails:} usable evidence remains available, with a visible note.}
+\vspace{0.18cm}
+
+{\footnotesize Live research needs internet and an API key. Offline mode uses five labeled sample topics.}
 \end{frame}
 
 \begin{frame}{Architecture}
@@ -192,15 +210,27 @@ Səbuhi Xamiyev & Providers, worker, retry and search\\
 Aqil Əsgərov & Cache, validation, offline and UI\\\bottomrule\end{tabularx}\par
 \vspace{0.5cm}
 Codex substantially drafted the software, tests and documentation.\\[0.3cm]
-Team reports about 90\% joint sessions; implementation commits centralized under Yaqub. Filled contribution record awaits member signatures.\\[0.4cm]
+Team reports about 90\% joint sessions; implementation commits centralized under Yaqub. The signed contribution statement is included in the final release.\\[0.4cm]
 \textbf{Defense goal:} every member can explain the full request path.
 \end{frame}
 
 {\setbeamertemplate{footline}{}
-\begin{frame}[plain]\centering
-{\Huge\bfseries\color{accent}Questions}\\[1cm]
-{\Large VerteX}\\[0.5cm]
-\texttt{github.com/yagubbx/Research-Assistant}\\[0.7cm]
-\small Architecture, timeout behavior, citation validation and benchmark scope
+\begin{frame}[plain]
+\begin{columns}[c,onlytextwidth]
+\column{.51\textwidth}
+{\Huge\bfseries\color{accent}Live demonstration}\\[0.45cm]
+{\Large Async Research Assistant}\\[0.35cm]
+Scan the QR code to open\\the deployed application.\\[0.45cm]
+{\large\bfseries VerteX}\\[0.25cm]
+{\small Questions and discussion}
+\column{.43\textwidth}
+\centering
+\href{https://vertex-research-assistant.onrender.com/}{\includegraphics[width=4.9cm]{render-qr.png}}\\[0.12cm]
+{\small\color{accent}\href{https://vertex-research-assistant.onrender.com/}{Open the live application}}
+\end{columns}
+\vspace{0.45cm}
+\centering
+{\small\href{https://vertex-research-assistant.onrender.com/}{vertex-research-assistant.onrender.com}}\\[0.15cm]
+{\small Repository: \href{https://github.com/yagubbx/Research-Assistant}{github.com/yagubbx/Research-Assistant}}
 \end{frame}}
 \end{document}
