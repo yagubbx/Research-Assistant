@@ -81,156 +81,196 @@
 }
 
 \usepackage{xurl}
+\tikzset{box/.style={draw=accent,fill=soft,rounded corners=2pt,align=center,minimum height=9mm,font=\normalsize},arr/.style={-Stealth,thick,draw=accent}}
+\setbeamertemplate{footline}{\hspace{4mm}\scriptsize VerteX / Research Assistant\hfill\insertframenumber\,/\,\inserttotalframenumber\hspace{4mm}\vspace{2mm}}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
 \begin{document}
+\begin{frame}[plain]
+\vspace{0.2cm}
+{\small AI Academy, National AI Center}\par\vspace{0.7cm}
+{\Huge\bfseries\color{accent}Research Assistant}\par\vspace{1.1cm}
 
-{\setbeamertemplate{footline}{}
-\begin{frame}[plain]\centering
-{\small AI Academy, National AI Center\\AI-ENG-110 -- Software Engineering}\\[0.8cm]
-\rule{0.75\textwidth}{0.6pt}\\[0.4cm]
-{\Huge\bfseries\color{accent}Async Research Assistant}\\[0.4cm]
-\rule{0.75\textwidth}{0.6pt}\\[0.6cm]
-{\Large VerteX}\\[0.4cm]
-Yaqub Xəlilli \quad Səbuhi Xamiyev \quad Aqil Əsgərov\\[0.6cm]
-{\small github.com/yagubbx/Research-Assistant}
-\end{frame}}
+{\Large\bfseries VerteX}\par\vspace{0.2cm}
+Yaqub Xəlilli\quad Səbuhi Xamiyev\quad Aqil Əsgərov
+\end{frame}
 
-\begin{frame}{Research Assistant: purpose and workflow}
-\textbf{One question, evidence from several sources.}\\[0.12cm]
-A concise answer with numbered references the user can inspect.
-\vspace{0.38cm}
-\begin{columns}[T,onlytextwidth]
-\column{.29\textwidth}
-{\color{accent}\textbf{01\quad Ask}}\\[0.18cm]
-Enter a research question.\\[0.18cm]
-Choose Wikipedia, arXiv or web sources.\\[0.18cm]
-Use the CLI or Streamlit UI.
-\column{.32\textwidth}
-{\color{accent}\textbf{02\quad Research}}\\[0.18cm]
-Fetch selected sources concurrently.\\[0.18cm]
-Reuse valid cached evidence.\\[0.18cm]
-Generate an answer with an LLM.
-\column{.31\textwidth}
-{\color{accent}\textbf{03\quad Inspect}}\\[0.18cm]
-Read the answer and open its references.\\[0.18cm]
-See source status and timing.\\[0.18cm]
-Export text or JSON.
-\end{columns}
-\vspace{0.38cm}
-{\small\color{accent}\textbf{When a source fails:} usable evidence remains available, with a visible note.}
-\vspace{0.18cm}
-
-{\footnotesize Live research needs internet and an API key. Offline mode uses five labeled sample topics.}
+\begin{frame}{One question, multiple sources}
+\centering
+\begin{tikzpicture}
+\node[box,text width=2.4cm] (q) at (0,0) {Research\\question};
+\node[box,text width=2.5cm] (w) at (4,1.5) {Wikipedia};
+\node[box,text width=2.5cm] (a) at (4,0) {arXiv};
+\node[box,text width=2.5cm] (b) at (4,-1.5) {Web};
+\node[box,text width=2.5cm] (e) at (8,0) {Evidence\\+ LLM};
+\node[box,text width=2.4cm] (r) at (11.2,0) {Answer\\Citations};
+\draw[arr] (q.east)--++(.5,0)|-(w.west);
+\draw[arr] (q)--(a);
+\draw[arr] (q.east)--++(.5,0)|-(b.west);
+\draw[arr] (w.east)--++(.5,0)|-(e.west);
+\draw[arr] (a)--(e);
+\draw[arr] (b.east)--++(.5,0)|-(e.west);
+\draw[arr] (e)--(r);
+\node[font=\small,color=accent] at (4,2.35) {Concurrent retrieval};
+\end{tikzpicture}
+\vspace{0.55cm}\par
+CLI or Streamlit\hspace{1cm}Source status\hspace{1cm}Text or JSON
 \end{frame}
 
 \begin{frame}{Architecture}
-\centering\resizebox{.92\textwidth}{!}{\begin{minipage}{15cm}
-\begin{center}
-\begin{tikzpicture}[node distance=7mm,box/.style={draw=accent,rounded corners=2pt,fill=soft,align=center,minimum width=3.5cm,minimum height=8mm,font=\small},arr/.style={-Stealth,thick}]
-\node[box] (cli) {CLI: ask / demo / benchmark};
-\node[box,below=of cli] (core) {Researcher orchestrator};
-\node[box,left=8mm of core] (cache) {Cache ABC\\JSON / memory};
-\node[box,below=of core] (service) {AIService + retry policy};
-\node[box,below=of service] (ai) {Unchanged course ai/};
-\node[box,right=8mm of service] (http) {Shared HTTP client\\retry transport + pacing};
+\centering
+\begin{tikzpicture}
+\node[box,text width=4cm] (cli) at (0,2) {CLI / Streamlit};
+\node[box,text width=4cm] (core) at (0,.5) {Researcher orchestrator};
+\node[box,text width=3cm] (cache) at (-5,.5) {Cache ABC\\JSON / memory};
+\node[box,text width=3.2cm] (http) at (5,.5) {Shared HTTP client\\retry + pacing};
+\node[box,text width=4cm] (service) at (0,-1) {AIService + worker};
+\node[box,text width=4cm] (ai) at (0,-2.5) {Unchanged course \texttt{ai/}};
 \draw[arr] (cli)--(core); \draw[arr] (core)--(cache);
-\draw[arr] (core)--(service); \draw[arr] (service)--(ai); \draw[arr] (service)--(http);
+\draw[arr] (core)--(http); \draw[arr] (core)--(service); \draw[arr] (service)--(ai);
 \end{tikzpicture}
-\end{center}
-\end{minipage}}
-\vspace{0.3cm}
-\small Pydantic models cross boundaries. Only the service and its worker call the supplied AI package. No changes to \texttt{ai/}.
+\par\vspace{0.25cm}\small Pydantic models validate data across boundaries.
 \end{frame}
 
-\begin{frame}{Design decisions}
-\begin{enumerate}\setlength\itemsep{0.65cm}
-\item \textbf{Async I/O for retrieval}\\Independent sources overlap; a semaphore caps active operations.
-\item \textbf{Filesystem cache behind an interface}\\Persistence without a database server; memory backend supports tests.
-\item \textbf{A process for synchronous synthesis}\\A deadline can terminate the SDK call; startup adds latency.
-\end{enumerate}
+\begin{frame}{Why async retrieval?}
+\centering
+\begin{tikzpicture}[x=.95cm,y=1cm]
+\node[anchor=east] at (0,1.8) {Sequential};
+\fill[accent!85] (0,1.5) rectangle (2,2.1);
+\fill[accent!55] (2,1.5) rectangle (7,2.1);
+\fill[accent!25] (7,1.5) rectangle (10,2.1);
+\node[text=white] at (1,1.8) {Wiki}; \node at (4.5,1.8) {arXiv}; \node at (8.5,1.8) {Web};
+\node[anchor=west,font=\bfseries] at (10.2,1.8) {10 s};
+\node[anchor=east] at (0,.6) {Wikipedia}; \fill[accent!85] (0,.3) rectangle (2,.9);
+\node[anchor=east] at (0,-.2) {arXiv}; \fill[accent!55] (0,-.5) rectangle (5,.1);
+\node[anchor=east] at (0,-1) {Web}; \fill[accent!25] (0,-1.3) rectangle (3,-.7);
+\draw[dashed,accent] (5,.95)--(5,-1.5);
+\node[anchor=west,font=\bfseries,color=accent] at (5.2,-.2) {5 s concurrent};
+\draw[arr] (0,-1.8)--(10.5,-1.8);
+\foreach \v in {0,2,5,10} {\node[below,font=\small] at (\v,-1.8) {\v\ s};}
+\end{tikzpicture}
+\par\vspace{0.45cm}\small Illustrative timings. Semaphore limits active work. LLM synthesis follows retrieval.
 \end{frame}
 
-\begin{frame}{Retrieval benchmark}
-\textbf{Five questions, three repetitions, cache bypassed}\vspace{0.4cm}
-\begin{center}\begin{tabular}{lrr}\toprule & Sequential & Parallel\\\midrule
-Median seconds & 2.412 & 0.802\\Speedup & 1.00$\times$ & 3.01$\times$\\Failed / empty & 0 & 0\\\bottomrule\end{tabular}\end{center}
-\vspace{0.35cm}
-Synthetic HTTP delays: 150 ms per source; semaphore = 3.\\
-\textbf{Scope:} retrieval only; no live-provider latency claim.\\[0.3cm]
-\textbf{Bottleneck:} the slowest source after overlap; synthesis may dominate the full live run.
+\begin{frame}{Measured retrieval speedup}
+\begin{columns}[c,onlytextwidth]
+\column{.7\textwidth}
+\begin{tikzpicture}[x=2.4cm,y=1cm]
+\node[anchor=west] at (0,2.5) {Sequential};
+\fill[accent!35] (0,1.75) rectangle (2.412,2.2);
+\node[anchor=west] at (2.45,1.97) {2.412 s};
+\node[anchor=west] at (0,1) {Concurrent};
+\fill[accent] (0,.25) rectangle (.802,.7);
+\node[anchor=west] at (.85,.47) {0.802 s};
+\end{tikzpicture}
+\column{.26\textwidth}
+{\Huge\bfseries\color{accent}3.01×}\\[0.2cm]
+retrieval speedup
+\end{columns}
+\vspace{0.6cm}
+5 questions\hfill3 repetitions\hfill0 failed / empty
+\par\vspace{0.4cm}\small Simulated HTTP: 150 ms per source. Median times, cache bypassed.\\
+Retrieval only. These results do not measure live LLM latency.
 \end{frame}
 
-\begin{frame}{Integration problems and solutions}
-\begin{itemize}\setlength\itemsep{0.35cm}
-\item \textbf{Uncited sentences:} validate and regenerate within the existing retry budget; never invent citations.
-\item \textbf{Empty or slow search:} simplify topic queries; bound web search in a killable worker.
-\item \textbf{Gemini errors:} inspect safe status codes; align model defaults with the working deployment.
-\item \textbf{Source failure:} keep usable evidence and show a missing-source note; stop if all sources fail.
-\end{itemize}
-\small Evidence: regression tests, Docker acceptance log and Render live sample.
+\begin{frame}{Failure handling}
+\centering
+\begin{tikzpicture}
+\node[box,text width=2.4cm] (fetch) at (0,0) {Fetch sources};
+\node[box,text width=3cm] (check) at (4,0) {Usable\\evidence?};
+\node[box,text width=4cm] (yes) at (9,1.3) {Synthesize + validate\\Show source warnings};
+\node[box,text width=4cm] (no) at (9,-1.3) {Stop with a clear error};
+\draw[arr] (fetch)--(check);
+\draw[arr] (check.east)--++(.55,0)|- node[near end,above,font=\small] {Yes} (yes.west);
+\draw[arr] (check.east)--++(.55,0)|- node[near end,below,font=\small] {No} (no.west);
+\end{tikzpicture}
+\vspace{0.65cm}\par
+\begin{tabular}{ll}
+\textbf{Slow source} & Deadline bounds the wait\\[0.2cm]
+\textbf{Uncited answer} & Regenerate within the retry budget
+\end{tabular}
 \end{frame}
 
-\begin{frame}[fragile]{Scripted demonstration}
-\begin{lstlisting}[style=python,language=bash,numbers=none]
-python -m streamlit run researcher/web_ui.py
-python -m researcher ask "photosynthesis" \
-  --offline --sources wiki,arxiv --json
-docker run --rm --network none vertex-research
-\end{lstlisting}
-\vspace{0.4cm}
-Five original questions produce answers with numbered references.\\[0.25cm]
-Offline evidence is visibly labeled \textbf{SIMULATED}.\\[0.25cm]
-\small Render live sample: 23.21 s, 3 sources, 3 references. Offline mode needs no key.
-\end{frame}
-
-\begin{frame}{Testing evidence}
+\begin{frame}{Demonstration modes}
 \begin{columns}[T,onlytextwidth]
-\column{.46\textwidth}{\Huge\color{accent}121} passing tests\\[0.45cm]
-{\Huge\color{accent}93.85\%} application coverage\\[0.35cm]
-16 unchanged course smoke tests included.
-\column{.48\textwidth}\textbf{High-value checks}\begin{itemize}\item Source failure and timeout\item Semaphore bound and overlap\item 429 recovery; no 401 retry\item Cache expiry and corruption\item Invalid and missing citations\end{itemize}
-\end{columns}\vspace{0.5cm}
-\small Ruff passes; mypy reports no issues in 18 files. Tests use mocks and deny live sockets.
+\column{.46\textwidth}
+{\Large\bfseries\color{accent}Offline sample}\\[0.4cm]
+5 prepared topics\\[0.2cm]
+No network or API key\\[0.2cm]
+Explicitly simulated evidence
+\column{.46\textwidth}
+{\Large\bfseries\color{accent}Live research}\\[0.4cm]
+External source requests\\[0.2cm]
+Configured LLM key\\[0.2cm]
+Latency and quota vary
+\end{columns}
+\vspace{0.8cm}
+\centering\texttt{python -m researcher demo --offline --no-cache}
+\par\vspace{0.3cm}\small Live demo: inspect references and source status in Streamlit.
 \end{frame}
 
-\begin{frame}{Tested extensions in v1.1.0}
-\begin{itemize}\setlength\itemsep{0.3cm}
-\item \textbf{Web failover:} primary failure or timeout, then a configured secondary; chaos tests verify recovery.
-\item \textbf{Token budget:} estimated sliding-window reservations; exhaustion test observes 60 s backoff.
-\item \textbf{Streamlit:} same core pipeline, sample/live modes, references and downloads; AppTest and browser checks.
-\item \textbf{CI:} lint, types, tests, coverage and container UI health workflow.
-\end{itemize}\vspace{0.2cm}
-\small Docker acceptance passed. Live Gemini passed; PR 1 checks passed before merge. Bonus credit is assessed by the instructor.
+\begin{frame}{Verification evidence}
+\begin{columns}[T,onlytextwidth]
+\column{.3\textwidth}\centering {\Huge\bfseries\color{accent}121}\\[.25cm]tests passed
+\column{.36\textwidth}\centering {\Huge\bfseries\color{accent}93.85\%}\\[.25cm]application coverage
+\column{.3\textwidth}\centering {\Huge\bfseries\color{accent}16}\\[.25cm]course smoke tests
+\end{columns}
+\vspace{.7cm}\centering
+\begin{tikzpicture}
+\node[box,text width=2.4cm] (l) at (0,0) {Ruff};
+\node[box,text width=2.4cm] (m) at (3.5,0) {Mypy};
+\node[box,text width=2.4cm] (t) at (7,0) {Offline tests};
+\node[box,text width=2.4cm] (d) at (10.5,0) {Container checks};
+\draw[arr] (l)--(m); \draw[arr] (m)--(t); \draw[arr] (t)--(d);
+\end{tikzpicture}
+\par\vspace{.5cm}\small Recorded full run: 17 September 2026. Smoke tests are included in 121.\\
+Tests mock external services. Coverage measures execution, not correctness.
 \end{frame}
 
-\begin{frame}{Team and AI disclosure}
-\begin{tabularx}{\textwidth}{lX}\toprule
-Member & Responsibility (team-reported)\\\midrule
-Yaqub Xəlilli & CLI/core, integration and deploy\\
-Səbuhi Xamiyev & Providers, worker, retry and search\\
-Aqil Əsgərov & Cache, validation, offline and UI\\\bottomrule\end{tabularx}\par
-\vspace{0.5cm}
-Codex substantially drafted the software, tests and documentation.\\[0.3cm]
-Team reports about 90\% joint sessions; implementation commits centralized under Yaqub. The signed contribution statement is included in the final release.\\[0.4cm]
-\textbf{Defense goal:} every member can explain the full request path.
+\begin{frame}{Reliability extensions}
+\centering
+\begin{tikzpicture}
+\node[anchor=west,font=\bfseries] at (-1,2) {Web failover};
+\node[box,text width=2.6cm] (p) at (4,2) {Primary provider};
+\node[box,text width=2.8cm] (f) at (9,2) {Configured fallback};
+\draw[arr] (p)--node[above,font=\small] {failure} (f);
+\node[anchor=west,font=\bfseries] at (-1,0) {Token budget};
+\node[box,text width=2.6cm] (e) at (4,0) {Estimate + reserve};
+\node[box,text width=2.8cm] (w) at (9,0) {Send or wait};
+\draw[arr] (e)--(w);
+\node[anchor=west,font=\bfseries] at (-1,-2) {Worker deadline};
+\node[box,text width=2.6cm] (s) at (4,-2) {SDK process};
+\node[box,text width=2.8cm] (k) at (9,-2) {Terminate + reap};
+\draw[arr] (s)--node[above,font=\small] {timeout} (k);
+\end{tikzpicture}
+\par\vspace{.3cm}\small Failover needs configured providers. Token estimates apply to one service instance.
 \end{frame}
 
-{\setbeamertemplate{footline}{}
+\begin{frame}{Team responsibilities}
+\begin{columns}[T,onlytextwidth]
+\column{.31\textwidth}{\large\bfseries\color{accent}Yaqub Xəlilli}\\[.35cm]CLI + core\\Integration\\Deployment
+\column{.31\textwidth}{\large\bfseries\color{accent}Səbuhi Xamiyev}\\[.35cm]Providers + worker\\Retry\\Search
+\column{.31\textwidth}{\large\bfseries\color{accent}Aqil Əsgərov}\\[.35cm]Cache + validation\\Offline mode\\UI
+\end{columns}
+\vspace{.7cm}
+\textbf{AI assistance}\par\vspace{.15cm}
+Codex substantially drafted the software, tests and documentation.
+\par\vspace{.3cm}\small Team-reported allocation and about 90\% joint sessions.\\
+Implementation commits centralized under Yaqub. Signed statement included.
+\end{frame}
+
 \begin{frame}[plain]
 \begin{columns}[c,onlytextwidth]
 \column{.51\textwidth}
-{\Huge\bfseries\color{accent}Live demonstration}\\[0.45cm]
-{\Large Async Research Assistant}\\[0.35cm]
-Scan the QR code to open\\the deployed application.\\[0.45cm]
-{\large\bfseries VerteX}\\[0.25cm]
-{\small Questions and discussion}
-\column{.43\textwidth}
-\centering
-\href{https://vertex-research-assistant.onrender.com/}{\includegraphics[width=4.9cm]{render-qr.png}}\\[0.12cm]
-{\small\color{accent}\href{https://vertex-research-assistant.onrender.com/}{Open the live application}}
+{\Huge\bfseries\color{accent}Live\\demonstration}\\[.45cm]
+{\Large Async Research Assistant}\\[.35cm]
+Scan to open the deployed app.\\[.55cm]
+{\Large\bfseries VerteX}\\[.2cm]
+Questions and discussion
+\column{.43\textwidth}\centering
+\href{https://vertex-research-assistant.onrender.com/}{\includegraphics[width=4.9cm]{render-qr.png}}
 \end{columns}
-\vspace{0.45cm}
-\centering
-{\small\href{https://vertex-research-assistant.onrender.com/}{vertex-research-assistant.onrender.com}}\\[0.15cm]
-{\small Repository: \href{https://github.com/yagubbx/Research-Assistant}{github.com/yagubbx/Research-Assistant}}
-\end{frame}}
+\vspace{.5cm}\centering
+\small\href{https://vertex-research-assistant.onrender.com/}{vertex-research-assistant.onrender.com}\\[.2cm]
+\href{https://github.com/yagubbx/Research-Assistant}{github.com/yagubbx/Research-Assistant}
+\end{frame}
 \end{document}
