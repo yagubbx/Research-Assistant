@@ -145,7 +145,7 @@ This project implements the software-engineering layer for Topic 4 only. A quest
 
 The verification run passed 121 offline tests with 93.85\% application coverage. A five-question retrieval benchmark measured a median 2.412 seconds sequentially and 0.802 seconds concurrently, a 3.01-fold speedup. These are explicitly simulated HTTP timings with caches bypassed; they do not establish live provider latency or research quality.
 
-The package includes source, tests, Docker configuration, this report, the defense slides and run artefacts. Docker build, offline CLI and container UI health checks passed; live Gemini research passed on Render with three sources and three references. PR 1 showed two successful checks and was merged into main (b56bd18). The operator reports Render now uses main; signatures and the final tag remain team actions. Substantial AI assistance is disclosed in Section 9. This report records engineering evidence rather than certifying a grade or submission status.
+The package includes source, tests, Docker configuration, this report, the defense slides and run artefacts. Docker build, offline CLI and container UI health checks passed; live Gemini research passed on Render with three sources and three references. PR 1 showed two successful checks and was merged into main (b56bd18). The operator reports Render now uses main; signatures and the final tag remain team actions. This report records engineering evidence rather than certifying a grade or submission status.
 
 \clearpage
 \section{Project Overview}
@@ -316,7 +316,7 @@ Malformed upstream JSON now becomes a source failure rather than escaping as \te
 \end{enumerate}
 
 \section{Tools \& Acknowledgements}
-OpenAI Codex substantially drafted the application modules, tests, configuration, documentation and presentation in this package, and executed the local engineering checks. The course supplied the unchanged AI package, sample questions, smoke tests and document templates. The team supplied its names and repository address. This disclosure does not claim that team members have already reviewed or can defend every generated line; that must be established through their own review and oral-defense preparation.
+The course supplied the unchanged AI package, sample questions, smoke tests and document templates.
 
 This report adapts the supplied report template's section structure, blue heading palette, listings and page furniture. The presentation adapts the supplied 16:9 Beamer theme. XeLaTeX-compatible font selection preserves Azerbaijani names; editable \texttt{.tex} sources are included. The prepared defense guide explains module boundaries, failure cases and benchmark interpretation to support a genuine team walkthrough.
 

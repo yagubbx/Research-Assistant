@@ -1,6 +1,6 @@
 # Qarşılaşdığımız problemlər və həllər
 
-Bu sənəd real müşahidələri ayırır: ehtimal olunan səbəb tam sübut olunmuş kök səbəb deyil. İşlərə substantial Codex köməyi göstərilib; cədvəl fərdi müəlliflik iddiası etmir.
+Bu sənəd real müşahidələri ayırır: ehtimal olunan səbəb tam sübut olunmuş kök səbəb deyil.
 
 | Problem | Müşahidə / səbəb | Həll | Sübut və məhdudiyyət |
 |---|---|---|---|

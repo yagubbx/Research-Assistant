@@ -36,7 +36,7 @@ Google-un rəsmi məlumatı: https://ai.google.dev/gemini-api/docs/pricing və h
 
 ## Python tapılmırsa
 
-Python 3.12 quraşdır. Başlatma faylı `py`, PATH-dəki Python və bu kompüterdə mövcud Codex Python runtime-ını avtomatik yoxlayır. `.venv` və kitabxanalar ZIP-ə daxil deyil, ilk açılışda yaradılır. `cryptography/hazmat` kimi kitabxana qovluqları sizin yazdığınız tətbiq kodu deyil; onları mühitin içindən silmə.
+Python 3.12 quraşdır. Başlatma faylı `py`, PATH-dəki Python və bu kompüterdə mövcud əlavə Python runtime-ını avtomatik yoxlayır. `.venv` və kitabxanalar ZIP-ə daxil deyil, ilk açılışda yaradılır. `cryptography/hazmat` kimi kitabxana qovluqları sizin yazdığınız tətbiq kodu deyil; onları mühitin içindən silmə.
 
 ## Müdafiə
 

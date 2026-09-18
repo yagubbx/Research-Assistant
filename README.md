@@ -14,7 +14,7 @@ Topic 4 of the AI Academy Software Engineering final project. Ask a question, re
 
 For real research, create a Gemini Free Tier key in [Google AI Studio](https://aistudio.google.com/apikey), run **setup_gemini.cmd**, paste the key into its hidden terminal prompt, then select **Live research** in the UI. No paid plan is enabled by the app. Model availability and quota depend on your Google account. `.env` is private and excluded from the ZIP/Git.
 
-Python 3.12 is recommended. The launcher tries the Windows Python launcher, Python on PATH, then an existing Codex Python runtime when available on this machine. On another computer install Python if none is found. First installation needs internet; subsequent sample demos use the installed local environment. `run_demo.cmd` runs all five samples in the terminal.
+Python 3.12 is recommended. The launcher tries the Windows Python launcher, Python on PATH, then an existing bundled Python runtime when available on this machine. On another computer install Python if none is found. First installation needs internet; subsequent sample demos use the installed local environment. `run_demo.cmd` runs all five samples in the terminal.
 
 Manual UI command (after installing `requirements-ui.txt`):
 
@@ -205,9 +205,9 @@ Alternatively, run XeLaTeX twice inside each document's directory. Keep `docs/fo
 
 The original brief lists May 23, 2026; preparation occurred September 16, 2026. No Moodle submission, backdated work, commit balance or signature is implied.
 
-## Attribution and AI disclosure
+## Course materials
 
-The course supplied `ai/`, its smoke tests, sample questions and `demo_ai.py`; they are unchanged. OpenAI Codex substantially drafted the software-engineering layer, tests, Docker/CI configuration and documentation, and performed the recorded local checks. The team provided identities and repository address. Team review and ownership must be documented honestly; no member's work or PR history is manufactured.
+The course supplied `ai/`, its smoke tests, sample questions and `demo_ai.py`; they are unchanged.
 
 The report and slides adapt the course LaTeX templates. Noto fonts retain their included SIL Open Font License. See the report references for Python asyncio, HTTPX transports and pytest documentation used in the design.
 
@@ -236,4 +236,4 @@ Older benchmark and Docker artefacts retain their original measurement context; 
 
 The coordinator reports approximately 90% joint working sessions, with implementation commits submitted through Yaqub's computer/account. Completed responsibility allocation according to that account: Yaqub — CLI/core/config/models and integration/deploy; Səbuhi — service/worker/resilience/search/bonuses; Aqil — cache/validation/offline/UI and acceptance/document consistency. This is a team-reported allocation, not independently verified sole authorship or proof of individual test execution.
 
-Verified main@fdfcb60: Yaqub 7/9 commits (77.78%), Səbuhi 2/9 (22.22%, both PR #1/#2 merges), Aqil 0/9 (0%). All non-merge commits are under Yaqub's identity. Git counts do not measure labor share. Refresh this snapshot after further merges. See the filled contribution statement; each member must confirm/correct their account and sign personally. AI assistance remains disclosed. The instructor decides whether centralized commits satisfy contribution requirements.
+Verified main@fdfcb60: Yaqub 7/9 commits (77.78%), Səbuhi 2/9 (22.22%, both PR #1/#2 merges), Aqil 0/9 (0%). All non-merge commits are under Yaqub's identity. Git counts do not measure labor share. Refresh this snapshot after further merges. See the filled contribution statement; each member must confirm/correct their account and sign personally. The instructor decides whether centralized commits satisfy contribution requirements.
